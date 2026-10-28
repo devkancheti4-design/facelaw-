@@ -1,0 +1,31 @@
+[Redacted public copy: the names of private tools are replaced. The hash-locked original's sha256 is ae1792d39147b4bbc5e6f4e185112f077ad92f268df41e8bc17ef0335aea0f16.]
+
+FACE ID HEAD-TO-HEAD, PROTOCOL 10 (Face Law phone pipeline v7: THE POSE LAW).  Written 2026-10-28 15:26:38.
+the v6.2 block since the enrolment of 2026-10-28 14:44:49 is closed as it stands: 0 attempts: none.
+why v7      measured on Extended Yale B turned in 3-D (pose_law.py; 37 people x 45 head angles x 6 lights x 3 photon levels,
+            eyes found by the phone's own eye law): ONE enrolled view holds the owner only within about 10 deg (96 law: the
+            owner's score 2.81 at the view's angle, 0.7 at 10 deg off, below strangers at 20 deg); the eye law finds both eyes on
+            98-99% of frames up to 20 deg of turn, 86-91% at 30 deg, about 50% at 40 deg (the two-eye wall).
+the law     THE POSE LAW: the head's angle from the 48 x 42 map bins of the eye-law crop; 35 classes (yaw -30..30 x pitch
+            -20..20, 10 deg steps) x 928 points x 8 bins; counted on all 37 people, round(2 log2((n+1)/(N+8))), the class with
+            the largest sum wins; the soft angle = the classes weighted by 2^(evidence/2).  Held out (each half's law on the other
+            half's people): yaw within 10 deg 93.6%, pitch 85.1%.  Authored as integer lanes: 259,840 entries in 129,920 lanes, 0
+            wrong (Python + C), 0 differing, all checked; the server rebuilds the table from the lanes at start and
+            checks it against the design.  pose_design.json 969d28f4cf9d8397, lanes_pose.json 4860718afbc92e41.
+the lock    ENROL  a grid of angles fills as the owner turns the head (the red dot = the angle read); a frame joins the cell
+                   nearest its angle when within 7 deg in both yaw and pitch; one view per cell with 3+ frames (the sharp
+                   ones); the straight cell is required; Done from 9 green cells; nothing is kept but the maps.
+            MATCH  NEAR4: each scan frame's angle is read; it is compared with the 4 enrolled views nearest that angle, both
+                   laws, over the points both angles show; each view's bar = the best rendered stranger try the same rule
+                   compares with it (pose_bundle.npz, 22362 tries of 37 people) + the margin of its law (96: 0.608, 48: 1.531:
+                   leave-one-person-out, the smallest at which no held-out new person's try clears a bar).
+            CHECK  unchanged from v6.1: the flash check (white, black, top, bottom) must be live, the face in the same place.
+the bet     simulation (pose_match.json, the phone-like condition: enrolment light, N >= 100): owner frame-tries open 75.5%
+            with NEAR4 (FRONT 10.2%, RING of 9 views 33.6%), flat over yaw -30..30 (69-84%); held-out strangers 0.  The
+            server, end to end on rendered faces (owner yaleB05 taken out of the bundle): owner 32/35 at grid angles, 21/24 at
+            in-between angles, 16/24 under another room light; strangers 0/252.
+            On the phone the stakes are: the owner opens at the angles enrolled and between them, including +-30 deg turns;
+            beyond +-30 deg (the side profile) the lock answers NOT NOW or NOT YOU -- the two-eye wall, not a stranger risk.
+trials      counted per attempt (an attempt = scan and check for up to 8 s); per attempt: who, light, answer, the last angle
+            read, and the phone's own face unlock as the tester taps it.  No image is ever written to disk.
+files       server.py a8645070ef13c500  index.html da2d8c8f3bf9cdf7  pose_bundle.npz 97f0eddee4f4f5e3  pose_bars.json ba10d0dddbaa60a9

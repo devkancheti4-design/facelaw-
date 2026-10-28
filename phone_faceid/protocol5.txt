@@ -1,0 +1,9 @@
+FACE ID HEAD-TO-HEAD, PROTOCOL 5 (Face Law phone pipeline v5.1).  Written 2026-10-28 13:56:48, before the v5.1 enrolment.
+the v5 block (protocol4.txt, sha256 343b5e32) is closed as it stands: 11 owner attempts: OPEN 2, NOT YOU 5, NOT NOW 4.
+The owner: "I think enrolment is the problem" -- the data agree: both opens matched the LAST enrolment view (where the
+circle stopped: the natural unlock position) on the first frame (+2.4, +2.8); the circle's other views were odd angles
+with motion blur.  One true match failed the check because the check began with a BLACK flash (over-exposed white).
+  v5.1      enrolment: 3 rounds of 6 steady frames in the owner's natural unlock position (lower and raise the phone between
+            rounds); only sharp frames kept; a view per round plus one from all.  The check flashes begin with WHITE.
+            Everything else as protocol 4 (scan 3 s frame by frame, bars full-light 0.402, dark 1.086, liveness unchanged).
+trials      counted per attempt, as protocol 4.

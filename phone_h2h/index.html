@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' blob:; connect-src 'self'">
+<title>Face Detection Test</title>
+<style>
+  :root { --bg:#f5f6f4; --ink:#151816; --mut:#5d6460; --acc:#1f6f5c; --card:#fff; --line:#dfe3e0; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#101312; --ink:#eef1ef; --mut:#9aa39f; --acc:#5cc2a5; --card:#191d1c; --line:#2a302e; } }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.45 system-ui, sans-serif; }
+  main { max-width:560px; margin:0 auto; padding:20px 16px 40px; }
+  h1 { font-size:22px; margin:6px 0 4px; } p { color:var(--mut); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  button { font:600 17px system-ui; padding:12px 18px; border-radius:10px; border:0; background:var(--acc); color:#fff; width:100%; }
+  button:disabled { opacity:.45; }
+  .big { font:700 30px system-ui; font-variant-numeric:tabular-nums; }
+  .row { display:flex; justify-content:space-between; gap:12px; font-variant-numeric:tabular-nums; }
+  progress { width:100%; height:10px; }
+  .warn { border-color:#c98500; }
+</style></head>
+<body><main>
+<h1>Face detection test</h1>
+<p>This phone's own face detector runs on 300 night photos sent from the Mac over the USB cable. Only the boxes it finds go back to the Mac. Nothing goes to the internet.</p>
+<div class="card warn" id="nofd" hidden>
+  <b>The face detector is switched off in Chrome.</b>
+  <p>Open <b>chrome://flags/#enable-experimental-web-platform-features</b>, set it to <b>Enabled</b>, tap <b>Relaunch</b>, then open this page again.</p>
+</div>
+<div class="card">
+  <button id="go" type="button">Start the test</button>
+  <p id="state">Ready.</p>
+  <progress id="bar" max="300" value="0"></progress>
+  <div class="row"><span>Photos done</span><span class="big" id="done">0</span></div>
+  <div class="row"><span>Faces found by this phone</span><span id="found">0</span></div>
+  <div class="row"><span>Median time per photo</span><span id="ms">–</span></div>
+</div>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+const supported = 'FaceDetector' in window;
+if (!supported) { $('nofd').hidden = false; $('go').disabled = true; $('state').textContent = 'Waiting for the Chrome setting.'; }
+$('go').onclick = async () => {
+  $('go').disabled = true;
+  try {
+    const fd = new FaceDetector({ maxDetectedFaces: 100, fastMode: false });
+    const keys = await (await fetch('/list')).json();
+    $('bar').max = keys.length;
+    const times = []; let found = 0;
+    for (let i = 0; i < keys.length; i++) {
+      const k = keys[i];
+      const bmp = await createImageBitmap(await (await fetch('/img/' + k + '.png')).blob());
+      const t0 = performance.now();
+      const faces = await fd.detect(bmp);
+      const ms = performance.now() - t0;
+      times.push(ms); found += faces.length;
+      const boxes = faces.map((f) => [f.boundingBox.x, f.boundingBox.y, f.boundingBox.x + f.boundingBox.width, f.boundingBox.y + f.boundingBox.height]);
+      await fetch('/result', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+                               body: JSON.stringify({ key: k, boxes, ms, w: bmp.width, h: bmp.height, ua: navigator.userAgent }) });
+      bmp.close();
+      const s = times.slice().sort((a, b) => a - b);
+      $('done').textContent = i + 1; $('bar').value = i + 1; $('found').textContent = found;
+      $('ms').textContent = Math.round(s[s.length >> 1]) + ' ms';
+      $('state').textContent = 'Testing photo ' + (i + 1) + ' of ' + keys.length + '…';
+    }
+    $('state').textContent = 'Done. You can close this page.';
+  } catch (e) {
+    $('state').textContent = 'Stopped: ' + e.message; $('go').disabled = false;
+  }
+};
+</script>
+</body></html>

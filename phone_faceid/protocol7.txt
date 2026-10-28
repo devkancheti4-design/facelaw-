@@ -1,0 +1,7 @@
+FACE ID HEAD-TO-HEAD, PROTOCOL 7 (Face Law phone pipeline v6).  Written 2026-10-28 14:04:29, before the v6 enrolment.
+attempts since protocol 6 (v5.2): 9 (OPEN 2, NOT YOU 5, NOT NOW 2), closed as they stand.
+  v6        enrolment like Face ID (the owner: "enrol just like Face ID, eyes matching"): the face in a circle with a ring of
+            12 directions; each frame's direction is where the eyes sit against the straight-ahead frame (in eye distances);
+            sharp frames with two eyes fill their segment; ends at straight-ahead + 9 directions or 15 s; at most 9 views.
+            Scan, check (white, black, top, bottom x 350 ms), bars (full-light 0.402, dark 1.086) and liveness: unchanged.
+trials      counted per attempt, as protocol 4.

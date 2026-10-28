@@ -1,0 +1,116 @@
+[
+ {
+  "owner": "yaleB01",
+  "stranger": {
+   "frames": 4580,
+   "eyes": 2393,
+   "match": 0,
+   "best": -0.76,
+   "hits": []
+  },
+  "own": {
+   "frames": 128,
+   "eyes": 57,
+   "match": 38
+  }
+ },
+ {
+  "owner": "yaleB07",
+  "stranger": {
+   "frames": 4580,
+   "eyes": 2411,
+   "match": 1,
+   "best": 0.16,
+   "hits": [
+    [
+     "yaleB09",
+     "yaleB09_P00A+050E-40.pgm",
+     "as is",
+     0.16,
+     "96 angle 5"
+    ]
+   ]
+  },
+  "own": {
+   "frames": 128,
+   "eyes": 65,
+   "match": 39
+  }
+ },
+ {
+  "owner": "yaleB15",
+  "stranger": {
+   "frames": 4582,
+   "eyes": 2427,
+   "match": 1,
+   "best": 0.22,
+   "hits": [
+    [
+     "yaleB09",
+     "yaleB09_P00A+050E-40.pgm",
+     "as is",
+     0.22,
+     "96 angle 4"
+    ]
+   ]
+  },
+  "own": {
+   "frames": 126,
+   "eyes": 50,
+   "match": 33
+  }
+ },
+ {
+  "owner": "yaleB21",
+  "stranger": {
+   "frames": 4580,
+   "eyes": 2376,
+   "match": 1,
+   "best": 0.14,
+   "hits": [
+    [
+     "yaleB09",
+     "yaleB09_P00A+050E-40.pgm",
+     "as is",
+     0.14,
+     "96 angle 4"
+    ]
+   ]
+  },
+  "own": {
+   "frames": 128,
+   "eyes": 73,
+   "match": 40
+  }
+ },
+ {
+  "owner": "yaleB27",
+  "stranger": {
+   "frames": 4580,
+   "eyes": 2397,
+   "match": 0,
+   "best": -0.55,
+   "hits": []
+  },
+  "own": {
+   "frames": 128,
+   "eyes": 71,
+   "match": 32
+  }
+ },
+ {
+  "owner": "yaleB33",
+  "stranger": {
+   "frames": 4580,
+   "eyes": 2416,
+   "match": 0,
+   "best": -0.51,
+   "hits": []
+  },
+  "own": {
+   "frames": 128,
+   "eyes": 48,
+   "match": 33
+  }
+ }
+]

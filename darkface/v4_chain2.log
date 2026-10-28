@@ -1,0 +1,31 @@
+  rows from 250 / 3800 design images  (254s)
+  rows from 500 / 3800 design images  (477s)
+  rows from 750 / 3800 design images  (706s)
+  rows from 1000 / 3800 design images  (924s)
+  rows from 1250 / 3800 design images  (1125s)
+  rows from 1500 / 3800 design images  (1351s)
+  rows from 1750 / 3800 design images  (1563s)
+  rows from 2000 / 3800 design images  (1769s)
+  rows from 2250 / 3800 design images  (1993s)
+  rows from 2500 / 3800 design images  (2193s)
+  rows from 2750 / 3800 design images  (2402s)
+  rows from 3000 / 3800 design images  (2624s)
+  rows from 3250 / 3800 design images  (2823s)
+  rows from 3500 / 3800 design images  (3036s)
+  rows from 3750 / 3800 design images  (3239s)
+rows 0-3800: 746267 (faces 63146, placement-only 120871, negatives 562250 standing for 112450000)  [3315s]
+  LAW 8 dx: 400 trees; residual sd 0.208 -> 0.142
+  LAW 8 dy: 400 trees; residual sd 0.192 -> 0.127
+  LAW 8 dlogsize: 400 trees; residual sd 0.333 -> 0.190
+LAW 8 fit on 184017 rows within IoU 0.3 of a face  [1442s]
+LAW 7c fit on ['v4_rows_0_3800.npz']: 625396 rows x 1864 features, 922 trees  [1738s]
+LAW 8 already fitted on these rows (v4_place.pkl)
+design-validation LAW 7c  NMS 0.3  boxes as found AP 24.39%  recall 64.3%
+design-validation LAW 7c  NMS 0.3  LAW 8 placed   AP 31.23%  recall 70.2%
+design-validation LAW 7c  NMS 0.4  boxes as found AP 23.86%  recall 73.3%
+design-validation LAW 7c  NMS 0.4  LAW 8 placed   AP 31.35%  recall 75.2%
+design-validation LAW 7c  NMS 0.5  boxes as found AP 23.76%  recall 74.5%
+design-validation LAW 7c  NMS 0.5  LAW 8 placed   AP 31.42%  recall 78.6%
+design-validation LAW 7c  NMS 0.6  boxes as found AP 23.22%  recall 76.4%
+design-validation LAW 7c  NMS 0.6  LAW 8 placed   AP 30.97%  recall 81.8%
+[1197s]

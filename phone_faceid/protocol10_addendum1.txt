@@ -1,0 +1,16 @@
+PROTOCOL 10, ADDENDUM 1 (v7.1 LABEL).  Written 2026-10-28 17:30:58.  Protocol 10 (sha256 ae1792d3...) stands; this changes one label.
+the block so far (2 enrolments, the latest 2026-10-28 17:16:16): 8 attempts; OPEN 3; the face matched in 7 of 8; flash
+            checks 11: OPEN 3, "moved" 5, "not in the same place" 2, "flat" 1; 3 attempts whose face matched and whose checks
+            saw movement were logged NOT YOU (17:13:21, 17:13:34, 17:16:29) -- a page bug; 1 attempt matched no frame
+            (17:18:02).  The log is not rewritten; read those 3 as NOT NOW (recognised, check refused).
+the change  LABEL  an attempt whose face matched but whose checks all saw movement ends NOT NOW ("It recognised you, but
+                   your face moved during the check flashes"), never NOT YOU.  The log also keeps each attempt's angles read
+                   and the matching frame's margin and angle.  The lock (ENROL, MATCH, CHECK) is unchanged.
+tried and refused  FOLLOW (eyes found again on every flash frame): on rendered faces it did not help the owner and opened
+                   still flat prints 12 of 24 (v7.0: 0 of 24).  Not shipped.
+found       THE CHECK IS NOT PHOTO-PROOF.  On rendered faces (scratchpad t7/check_test.py, check_v1.py) a flat print that
+            moves about 1 camera pixel per flash passes the liveness law as live: v7.0 check 21-23 of 24, the public
+            challenge's check 23 of 24 (11 of 24 at 0.5 px); the law's 3D number rises with motion for prints and live
+            faces alike.  Until a new check passes a moving-print test, no photo or print attack result is claimed, and
+            photo/print trials wait.
+files       server.py b4a8c0f633f18bf0  index.html 6f41a4a0069f9ff4

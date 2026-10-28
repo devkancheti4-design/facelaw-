@@ -1,0 +1,9 @@
+PREDICTION -- written 2026-10-26 before any DARK FACE image was seen (download at 5%)
+Method: the face-law detector (Law 1 significance, Law 2 sector codes, 16x16 template, counted LLR tables with
+hard negatives, engine-authored integer lanes), scored on the sealed 1,000-image split, VOC AP at IoU 0.5.
+Most likely AP: about 10%.   80% range: 4% - 22%.
+P(AP > 16.1, the best off-the-shelf deep face detector in the dark): about 25%.
+P(AP > 46.0, the fine-tuned deep detector): under 5%.
+Why: a per-position likelihood table is a linear model over ~2,300 counted numbers; DARK FACE faces are tiny (often
+under 20 px), noisy, blurred, turned and occluded, and in the darkest images Law 1 will (rightly) find few significant
+gradients.  Off-the-shelf deep detectors score 1.7-16.1 there; brighten-then-detect pipelines ~41.

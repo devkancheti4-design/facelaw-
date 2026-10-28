@@ -1,0 +1,13 @@
+FACE ID HEAD-TO-HEAD, PROTOCOL 2 (Face Law phone pipeline v3).  Written 2026-10-28 13:33:52, before the v3 enrolment and its trials.
+the first block (protocol.txt, sha256 6b5c5fea, pipeline v2) is closed and reported as it stands: owner trials 34: Face Law
+OPEN 11, NOT YOU 8, NOT NOW 15; Face ID recorded on 6 of them, opened 6.  The v2 failures (1-pixel movement rule, weak
+flash difference) led to v3, built after that block and before this protocol:
+  v3        frames lined up with the first white frame (+-3 law pixels); 3 black/white pairs + 2 top + 2 bottom per try;
+            a second map per law from the bright frame; margins re-set for two chances: full-light 0.348, dark 0.936 (the
+            stricter of the single-map and two-map leave-one-person-out calibrations); liveness thresholds unchanged.
+enrolment   the first v3 enrolment after this time; no re-enrolment during the test (one ends the test and is reported).
+trials      as protocol 1: the person (or photo, or screen) tries Face Law on the iQOO, then Face ID on the iPhone, same
+            place and light, Face ID's result recorded on the iQOO page.  Owner: 10 each in room light, dim, dark,
+            daylight, another day.  Strangers: every consenting person, 5 tries.  Photo: 10.  Phone screen: 10.
+claims      mine, written now: Face ID opens the owner nearly always; Face Law v3 opens the owner in room light and dim far
+            more often than v2 (about half of tries or more), less in daylight; no stranger, photo or screen opens Face Law.

@@ -1,0 +1,9 @@
+FACE ID HEAD-TO-HEAD, PROTOCOL 9 (Face Law phone pipeline v6.2).  Written 2026-10-28 14:27:00.
+the v6.1 block since the enrolment of 2026-10-28 14:25:43 is closed as it stands: 1 attempts: OPEN 1, NOT YOU 0, NOT NOW 0 (in 22 of the
+first 28, a scan frame matched the owner; 8 of the misses were the check seeing movement).  The owner: "all set, problem with
+side profile only" -- Face Law needs both eyes and a near-frontal light pattern; a side profile cannot be read.
+  v6.2      one attempt = scan and check for up to 8 s (a check that sees movement goes back to scanning); after a NOT YOU the
+            owner may confirm with a 4-digit PIN, and the best frame of that scan becomes a view (replacing the ring view that
+            opened the fewest attempts; never more than 10 views, the calibration).  Bars and liveness unchanged.
+            The enrolment stays (no re-enrolment); its PIN is set at the first learning.
+trials      counted per attempt (the last answer of an attempt is its answer), as protocol 4; learnings are logged.

@@ -1,0 +1,18 @@
+{
+ "android": {
+  "recall": 0.01564288439526898,
+  "precision": 0.7884615384615384,
+  "boxes": 52,
+  "hits": 41,
+  "median_ms": 68.15000000596046,
+  "images": 300
+ },
+ "facelaw": {
+  "AP": 0.31416202737407434,
+  "recall_max": 0.78634109118657,
+  "precision_at_android_recall": 1.0,
+  "recall_at_android_precision": 0.15909958031285767,
+  "recall_same_boxes": 0.019458222052651658,
+  "precision_same_boxes": 0.9807692307692307
+ }
+}

@@ -1,0 +1,4 @@
+USER CLAIM, AM (sealed 2026-10-27, before AM is measured or scored on any image)
+words: "how we got 20x we can achieve this concrete test also"
+scored as: the sealed AP@0.5 of AM over the lane-authored models jumps again -- above 30% (the 20x itself is
+impossible from 23.38%: AP stops at 100%); at the least it beats LAW 7's sealed 23.38%.

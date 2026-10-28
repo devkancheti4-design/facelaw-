@@ -1,0 +1,134 @@
+{
+ "front": {
+  "5": {
+   "owner_open": 0.24500285551113649,
+   "owner_not_now": 0.2866933181039406,
+   "owner_not_you": 0.4683038263849229,
+   "owners": 1751,
+   "strangers": 59534,
+   "stranger_open": 1
+  },
+  "10": {
+   "owner_open": 0.3653516295025729,
+   "owner_not_now": 0.24871355060034306,
+   "owner_not_you": 0.38593481989708406,
+   "owners": 1749,
+   "strangers": 59466,
+   "stranger_open": 0
+  },
+  "20": {
+   "owner_open": 0.5050904977375565,
+   "owner_not_now": 0.2154977375565611,
+   "owner_not_you": 0.27941176470588236,
+   "owners": 1768,
+   "strangers": 60112,
+   "stranger_open": 0
+  },
+  "50": {
+   "owner_open": 0.6680022896393818,
+   "owner_not_now": 0.16771608471665714,
+   "owner_not_you": 0.16428162564396107,
+   "owners": 1747,
+   "strangers": 59398,
+   "stranger_open": 0
+  },
+  "100": {
+   "owner_open": 0.7574712643678161,
+   "owner_not_now": 0.12988505747126436,
+   "owner_not_you": 0.11264367816091954,
+   "owners": 1740,
+   "strangers": 59160,
+   "stranger_open": 0
+  },
+  "200": {
+   "owner_open": 0.8093294460641399,
+   "owner_not_now": 0.12303206997084548,
+   "owner_not_you": 0.06763848396501458,
+   "owners": 1715,
+   "strangers": 58310,
+   "stranger_open": 0
+  },
+  "500": {
+   "owner_open": 0.8429140580535003,
+   "owner_not_now": 0.11269208878770631,
+   "owner_not_you": 0.0443938531587934,
+   "owners": 1757,
+   "strangers": 59738,
+   "stranger_open": 0
+  },
+  "1000": {
+   "owner_open": 0.8433179723502304,
+   "owner_not_now": 0.11002304147465437,
+   "owner_not_you": 0.04665898617511521,
+   "owners": 1736,
+   "strangers": 59024,
+   "stranger_open": 0
+  }
+ },
+ "all": {
+  "5": {
+   "owner_open": 0.2161764705882353,
+   "owner_not_now": 0.5659313725490196,
+   "owner_not_you": 0.2178921568627451,
+   "owners": 4080,
+   "strangers": 138720,
+   "stranger_open": 2
+  },
+  "10": {
+   "owner_open": 0.307843137254902,
+   "owner_not_now": 0.5176470588235295,
+   "owner_not_you": 0.17450980392156862,
+   "owners": 4080,
+   "strangers": 138720,
+   "stranger_open": 0
+  },
+  "20": {
+   "owner_open": 0.41740196078431374,
+   "owner_not_now": 0.4571078431372549,
+   "owner_not_you": 0.12549019607843137,
+   "owners": 4080,
+   "strangers": 138720,
+   "stranger_open": 0
+  },
+  "50": {
+   "owner_open": 0.5323529411764706,
+   "owner_not_now": 0.3924019607843137,
+   "owner_not_you": 0.07524509803921568,
+   "owners": 4080,
+   "strangers": 138720,
+   "stranger_open": 1
+  },
+  "100": {
+   "owner_open": 0.5931372549019608,
+   "owner_not_now": 0.35637254901960785,
+   "owner_not_you": 0.050490196078431374,
+   "owners": 4080,
+   "strangers": 138720,
+   "stranger_open": 0
+  },
+  "200": {
+   "owner_open": 0.6323529411764706,
+   "owner_not_now": 0.33725490196078434,
+   "owner_not_you": 0.030392156862745098,
+   "owners": 4080,
+   "strangers": 138720,
+   "stranger_open": 0
+  },
+  "500": {
+   "owner_open": 0.6566176470588235,
+   "owner_not_now": 0.32230392156862747,
+   "owner_not_you": 0.02107843137254902,
+   "owners": 4080,
+   "strangers": 138720,
+   "stranger_open": 0
+  },
+  "1000": {
+   "owner_open": 0.6446078431372549,
+   "owner_not_now": 0.3333333333333333,
+   "owner_not_you": 0.022058823529411766,
+   "owners": 4080,
+   "strangers": 138720,
+   "stranger_open": 0
+  }
+ }
+}

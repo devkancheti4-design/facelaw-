@@ -1,0 +1,8 @@
+[Redacted public copy: the names of private tools are replaced. The hash-locked original's sha256 is a55ca65fe099247a53a6df2eb649d600c5cd6baac92b9e10c521ab75b070a675.]
+
+USER'S CLAIM -- recorded 2026-10-26 before any DARK FACE image was seen (download at ~13%)
+"If program synthesis is used, it writes an optimal law and it will cross 50 percent --
+ the max there is."
+Operational form: the engine-authored face-law detector scores AP > 50% (VOC, IoU 0.5) on the sealed 1,000-image
+DARK FACE split.  Competing prediction (prediction.txt, sha256 98cef985...): about 10%, 80% range 4-22%.
+The sealed test decides.

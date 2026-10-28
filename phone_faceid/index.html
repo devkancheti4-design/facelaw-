@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data: blob:; media-src mediastream: blob:; connect-src 'self'">
+<title>Face ID Test</title>
+<style>
+  :root { --bg:#f4f5f3; --ink:#151816; --mut:#5d6460; --acc:#1f6f5c; --card:#fff; --line:#dde2df; --open:#1b7a46; --no:#b3261e; --wait:#9a6a00; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0f1211; --ink:#eef1ef; --mut:#9aa39f; --acc:#5cc2a5; --card:#181c1b; --line:#2a302e; --open:#4cc38a; --no:#f2867c; --wait:#e0b44a; } }
+  * { box-sizing:border-box; } body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.45 system-ui, sans-serif; }
+  main { max-width:560px; margin:0 auto; padding:18px 16px 48px; }
+  h1 { font-size:21px; margin:4px 0 2px; } h2 { font-size:16px; margin:0 0 8px; } p, li { color:var(--mut); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:12px 0; }
+  button { font:600 16px system-ui; padding:12px 14px; border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--ink); }
+  button.main { background:var(--acc); color:#fff; border:0; width:100%; }
+  button:disabled { opacity:.45; }
+  input[type=password] { font:16px system-ui; padding:11px 12px; border-radius:10px; border:1px solid var(--line); background:var(--bg); color:var(--ink); width:100%; margin:0 0 8px; }
+  .seg { display:flex; flex-wrap:wrap; gap:6px; margin:6px 0 10px; }
+  .seg button { padding:8px 11px; font-size:14px; }
+  .seg button[aria-pressed="true"] { background:var(--acc); color:#fff; border-color:var(--acc); }
+  .verdict { font:700 30px system-ui; margin:4px 0; } .OPEN { color:var(--open); } .NOT_YOU { color:var(--no); } .NOT_NOW { color:var(--wait); }
+  table { width:100%; border-collapse:collapse; font-size:14px; font-variant-numeric:tabular-nums; }
+  th, td { text-align:right; padding:5px 4px; border-bottom:1px solid var(--line); } th:first-child, td:first-child { text-align:left; }
+  video { width:100%; border-radius:10px; background:#000; transform:scaleX(-1); max-height:280px; object-fit:cover; }
+  .flash { position:fixed; inset:0; z-index:10; display:none; } .flash.on { display:block; }
+  .flash[data-p="black"] { background:#000; } .flash[data-p="white"] { background:#fff; }
+  .flash[data-p="top"] { background:linear-gradient(#fff 0 50%, #000 50% 100%); } .flash[data-p="bottom"] { background:linear-gradient(#000 0 50%, #fff 50% 100%); }
+  .flash span { position:absolute; left:16px; right:16px; top:46%; text-align:center; font:600 21px system-ui; color:#888; }
+  .small { font-size:13px; color:var(--mut); }
+  .ring { position:fixed; inset:0; z-index:11; display:none; background:#fff; color:#222; text-align:center; }
+  .ring.on { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; }
+  .ring video { width:220px; height:220px; border-radius:50%; object-fit:cover; transform:scaleX(-1); background:#000; }
+  .ring p { margin:0 24px; font:600 19px system-ui; color:#333; }
+  .ring .small { font:500 15px system-ui; color:#555; }
+  .ring .row { display:flex; gap:10px; }
+  .ring button { border:0; padding:13px 22px; border-radius:10px; font:600 17px system-ui; }
+  #rmap { background:#1b7a46; color:#fff; } #rdone { background:#e3e6e4; color:#222; }
+  .add { border-top:1px solid var(--line); margin-top:12px; padding-top:12px; }
+</style></head>
+<body><main>
+<h1>Face ID test</h1>
+<p>Apple Face ID (on the iPhone) against Face Law (on this phone): the same people, the same light. This phone's frames go to the Mac over the USB cable only; no image is kept.</p>
+<div class="flash" id="flash"><span id="fmsg"></span></div>
+<div class="ring" id="ring"><video id="rvideo" playsinline muted></video>
+  <p id="rmsg">Hold the phone the way you unlock it</p><p class="small" id="rcount">No angles mapped yet</p>
+  <div class="row"><button type="button" id="rmap">Map this angle</button><button type="button" id="rdone">Done</button></div></div>
+<video id="video" playsinline muted hidden></video>
+<div class="card">
+  <h2>1. Enrol the owner</h2>
+  <p id="enrolstate">Checking…</p>
+  <p class="small">You choose the angles. Set a password, then hold the phone the way you unlock it and tap <b>Map this angle</b>. Do it again for every other way you hold it. Only those angles open, each within a few degrees of how you held the phone, so map every way you really hold it. Brightness all the way up.</p>
+  <input type="password" id="pw1" placeholder="Password (at least 4 characters)" autocomplete="new-password">
+  <input type="password" id="pw2" placeholder="The same password again" autocomplete="new-password">
+  <button class="main" id="enrol" type="button">Start enrolment</button>
+</div>
+<div class="card">
+  <h2>2. One trial</h2>
+  <div>Who is trying?</div>
+  <div class="seg" id="who"><button data-v="owner" aria-pressed="true">Owner</button><button data-v="stranger">Stranger</button><button data-v="photo">Printed photo</button><button data-v="screen">Phone screen</button></div>
+  <div>Light</div>
+  <div class="seg" id="light"><button data-v="daylight" aria-pressed="true">Daylight</button><button data-v="room">Room light</button><button data-v="dim">Dim</button><button data-v="dark">Dark</button><button data-v="day2">Another day</button></div>
+  <button class="main" id="try" type="button">Try Face Law</button>
+  <div id="res" hidden>
+    <div class="verdict" id="verdict"></div>
+    <p id="why"></p>
+    <p class="small" id="nums"></p>
+    <div class="add" id="addbox" hidden>
+      <p><b>Was that you?</b> Type your password to map this angle. From then on it opens at this angle (within a few degrees).</p>
+      <input type="password" id="pw3" placeholder="Your password" autocomplete="current-password">
+      <button type="button" id="add">Add this angle</button>
+      <p class="small" id="addmsg"></p>
+    </div>
+    <div id="fid"><p><b>Now this phone's own face unlock:</b> lock this phone, wake it, and let the same person (or the photo, or the screen) try Android's face unlock in the same light. What happened?</p>
+    <div class="seg" data-dev="android"><button data-p="opened">Android opened</button><button data-p="refused">Android refused</button><button data-p="skip">Not tried</button></div>
+    <p><b>And Face ID</b> (if the iPhone is here): lock the iPhone and let the same person try. What happened?</p>
+    <div class="seg" data-dev="iphone"><button data-p="opened">Face ID opened</button><button data-p="refused">Face ID refused</button><button data-p="skip">Not tried</button></div></div>
+  </div>
+</div>
+<div class="card"><h2>Results so far</h2><div id="sum"><p>No trials yet.</p></div></div>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+const S = { who: 'owner', light: 'daylight', last: null, failed: null, stream: null };
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+for (const g of ['who', 'light']) $(g).onclick = (e) => {
+  const b = e.target.closest('button'); if (!b) return;
+  for (const x of $(g).children) x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+  S[g] = b.dataset.v;
+};
+async function api(path, body) {
+  const r = await fetch(path, body ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) } : {});
+  const j = await r.json(); if (!r.ok) throw new Error(j.error || r.status); return j;
+}
+function table(st) {
+  const cells = Object.entries(st.cells || {});
+  if (!cells.length) return '<p>No trials yet.</p>';
+  const f = (o, n) => (n ? o + ' / ' + n : '–');
+  return '<table><tr><th>Who · light</th><th>Face Law</th><th>Android</th><th>Face ID</th></tr>' +
+    cells.map(([k, c]) => `<tr><td>${k.replace('|', ' · ')}</td><td>${c.facelaw_open} / ${c.tries}</td><td>${f(c.android_open, c.android_tried)}</td><td>${f(c.phone_open, c.phone_tried)}</td></tr>`).join('') + '</table>';
+}
+async function refresh() {
+  const st = await api('/api/status');
+  $('enrolstate').textContent = st.enrolled ? `Enrolled ${st.made}: ${st.angles} angle${st.angles === 1 ? '' : 's'} mapped` + (st.added ? ` (${st.added} added with your password)` : '') + '. Enrolling again replaces them.'
+                                            : 'No face enrolled for the mapped-angle lock yet. Enrol first.';
+  $('sum').innerHTML = table(st);
+}
+async function camera() {
+  S.stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user', width: { ideal: 1280 }, height: { ideal: 960 } }, audio: false });
+  const v = $('video'); v.srcObject = S.stream; v.hidden = false; await v.play(); await sleep(600);
+}
+function stop() { if (S.stream) S.stream.getTracks().forEach((t) => t.stop()); S.stream = null; $('video').hidden = true; }
+function grab(el) {
+  const v = el || $('video'), W = Math.min(960, v.videoWidth), H = Math.round(v.videoHeight * W / v.videoWidth);
+  const c = document.createElement('canvas'); c.width = W; c.height = H; c.getContext('2d').drawImage(v, 0, 0, W, H);
+  return c.toDataURL('image/jpeg', 0.95);
+}
+async function phase(p, ms, msg) { const f = $('flash'); f.dataset.p = p; $('fmsg').textContent = msg || ''; await sleep(ms); return grab(); }
+function busy(on) { $('enrol').disabled = on; $('try').disabled = on; }
+$('enrol').onclick = async () => {
+  busy(true);
+  try {
+    await api('/api/enrol_start', { password: $('pw1').value, password2: $('pw2').value });
+    $('pw1').value = ''; $('pw2').value = '';
+    S.stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user', width: { ideal: 1280 }, height: { ideal: 960 } }, audio: false });
+    const rv = $('rvideo'); rv.srcObject = S.stream; await rv.play();
+    $('ring').classList.add('on'); $('rmsg').textContent = 'Hold the phone the way you unlock it'; $('rcount').textContent = 'No angles mapped yet';
+    let angles = 0, capturing = false;
+    await new Promise((done) => {
+      $('rdone').onclick = () => { if (!capturing) done(); };
+      $('rmap').onclick = async () => {                           // about 2.5 s of frames at the angle the owner holds
+        if (capturing) return;
+        capturing = true; $('rmap').disabled = true; $('rdone').disabled = true;
+        $('rmsg').textContent = 'Hold still…';
+        let box = null, n = 0; const t0 = performance.now();
+        try {
+          while (performance.now() - t0 < 2500) {
+            const r = await api('/api/map_frame', { frame: grab($('rvideo')), box });
+            box = r.box || null; n = r.n;
+            $('rcount').textContent = r.ok ? `${n} frames` : 'Both eyes must show';
+          }
+          $('rmsg').textContent = 'Mapping…';
+          const r = await api('/api/map_finish', {});
+          angles = r.angles;
+          $('rmsg').textContent = `Angle ${angles} mapped`;
+          $('rcount').textContent = 'Hold the phone another way and tap Map this angle, or tap Done.';
+        } catch (e) { $('rmsg').textContent = 'Not mapped'; $('rcount').textContent = e.message; }
+        capturing = false; $('rmap').disabled = false; $('rdone').disabled = false;
+      };
+    });
+    await api('/api/enrol_done', {});
+    $('ring').classList.remove('on'); stop();
+    $('enrolstate').textContent = angles ? `Enrolled: ${angles} angle${angles === 1 ? '' : 's'} mapped.` : 'No angle was mapped, so nothing changed.';
+  } catch (e) { $('ring').classList.remove('on'); stop(); $('enrolstate').textContent = 'Not enrolled: ' + e.message; api('/api/enrol_done', {}).catch(() => {}); }
+  busy(false); refresh();
+};
+$('try').onclick = async () => {
+  busy(true); $('res').hidden = true; $('addbox').hidden = true; $('fid').hidden = false; $('addmsg').textContent = ''; S.failed = null;
+  for (const x of $('fid').querySelectorAll('button')) x.disabled = false;
+  const f = $('flash');
+  try {
+    await camera();
+    f.dataset.p = 'white'; $('fmsg').textContent = ''; f.classList.add('on');
+    const attempt = 'f' + Date.now(), t0 = performance.now(); S.box = null; S.angle = '';
+    let out = null, scanned = 0, faces = 0, best = -99, checks = 0, canAdd = false; const why = {}, angles = [];
+    while (performance.now() - t0 < 8000) {                     // scan, check; if the check saw movement, scan again
+      let hit = null; f.dataset.p = 'white';
+      while (performance.now() - t0 < 8000) {
+        const r = await api('/api/frame', { frame: grab(), box: S.box || null, attempt });
+        if (r.yaw !== undefined) angles.push([Math.round(r.yaw), Math.round(r.pitch)]);
+        S.box = r.box || null; scanned++;
+        if (r.margin !== undefined) { faces++; best = Math.max(best, r.margin); } else { why[r.why] = (why[r.why] || 0) + 1; }
+        if (r.match) { hit = r; break; }
+      }
+      if (!hit) break;
+      const fr = { black: [], white: [], top: [], bottom: [] };
+      for (const p of ['white', 'black', 'top', 'bottom']) fr[p].push(await phase(p, 350, ''));
+      checks++;
+      out = await api('/api/confirm', { frames: fr, eyes: hit.eyes, which: hit.which, margin: hit.margin, angle: [hit.yaw, hit.pitch],
+                                        attempt, who: S.who, light: S.light, scanned, secs: ((performance.now() - t0) / 1000).toFixed(1) });
+      if (out.decision === 'OPEN' || !/moved|same place/.test(out.reason || '')) break;
+      out = null;
+    }
+    const secs = ((performance.now() - t0) / 1000).toFixed(1);
+    if (!out) {                                                 // a face that matched is never called NOT YOU
+      const e = await api('/api/end', { attempt, who: S.who, light: S.light, scanned, faces, best, secs, why, checks, angles });
+      canAdd = e.can_add;
+      out = checks ? { decision: 'NOT NOW', reason: 'It recognised you, but your face moved during the check flashes. Hold the phone steady and try again.' }
+                   : { decision: faces ? 'NOT YOU' : 'NOT NOW', reason: faces ? 'No mapped angle matched in 8 seconds.' : 'No face with two eyes was seen. Face the screen.' };
+    }
+    f.classList.remove('on'); stop();
+    S.last = attempt; $('res').hidden = false;
+    $('verdict').textContent = out.decision; $('verdict').className = 'verdict ' + out.decision.replace(' ', '_');
+    $('why').textContent = out.reason || (out.decision === 'OPEN' ? 'Opened.' : '');
+    $('nums').textContent = `${scanned} frames, ${checks} check${checks === 1 ? '' : 's'}, ${secs} s` + (out.which ? ` · matched ${out.which}` : '') + (faces && !checks && out.decision !== 'OPEN' ? ` · best ${best.toFixed(2)} below the bar` : '');
+    if (out.decision === 'NOT YOU' && canAdd && S.who === 'owner') { S.failed = attempt; $('addbox').hidden = false; }
+  } catch (e) { f.classList.remove('on'); stop(); $('verdict').textContent = 'ERROR'; $('why').textContent = e.message; $('res').hidden = false; }
+  busy(false); refresh();
+};
+$('add').onclick = async () => {
+  if (!S.failed) return;
+  $('add').disabled = true;
+  try {
+    const r = await api('/api/add_angle', { attempt: S.failed, password: $('pw3').value });
+    $('addmsg').textContent = `Added. You now have ${r.angles} mapped angles. Try again at this angle.`; S.failed = null;
+  } catch (e) { $('addmsg').textContent = e.message; }
+  $('pw3').value = ''; $('add').disabled = false; refresh();
+};
+$('res').onclick = async (e) => {                               // the phones' own unlocks, one answer each per trial
+  const b = e.target.closest('button[data-p]'); if (!b || !S.last) return;
+  const g = b.closest('.seg'), dev = g.dataset.dev;
+  if (b.dataset.p !== 'skip') { const st = await api('/api/phone', { id: S.last, phone: b.dataset.p, device: dev }); $('sum').innerHTML = table(st); }
+  for (const x of g.children) x.disabled = true;
+  if ([...$('fid').querySelectorAll('.seg')].every((x) => [...x.children].every((c) => c.disabled))) {
+    S.last = null; $('fid').hidden = true; if (!S.failed) $('res').hidden = true;  // the add-angle box stays until it is used
+  }
+};
+let wake = null;                                                // keep the screen on while this page is open (no setting changes)
+async function keepAwake() {
+  try { if ('wakeLock' in navigator && document.visibilityState === 'visible' && (!wake || wake.released)) wake = await navigator.wakeLock.request('screen'); } catch (e) {}
+}
+document.addEventListener('visibilitychange', keepAwake); keepAwake(); setInterval(keepAwake, 15000);
+refresh().catch((e) => { $('enrolstate').textContent = 'The Mac is not reachable: ' + e.message; });
+</script>
+</body></html>

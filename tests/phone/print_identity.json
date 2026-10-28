@@ -1,0 +1,51 @@
+{
+ "live owner, straight, screen light": {
+  "frames": 12,
+  "eyes": 12,
+  "match": 12,
+  "median_margin": 3.56,
+  "best": 3.71
+ },
+ "print of the owner, photo light 0-12 deg": {
+  "frames": 14,
+  "eyes": 14,
+  "match": 14,
+  "median_margin": 0.78,
+  "best": 2.0
+ },
+ "print of the owner, photo light 12-25 deg": {
+  "frames": 20,
+  "eyes": 20,
+  "match": 13,
+  "median_margin": 0.44,
+  "best": 1.92
+ },
+ "print of the owner, photo light 25-50 deg": {
+  "frames": 24,
+  "eyes": 24,
+  "match": 7,
+  "median_margin": -0.57,
+  "best": 0.68
+ },
+ "print of the owner, photo light 77-180 deg": {
+  "frames": 38,
+  "eyes": 14,
+  "match": 0,
+  "median_margin": -0.48,
+  "best": -0.36
+ },
+ "print of the owner, photo light 50-77 deg": {
+  "frames": 32,
+  "eyes": 29,
+  "match": 0,
+  "median_margin": -1.94,
+  "best": -1.45
+ },
+ "print of another person, light <= 25 deg": {
+  "frames": 609,
+  "eyes": 600,
+  "match": 2,
+  "median_margin": -1.66,
+  "best": 3.98
+ }
+}

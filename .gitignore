@@ -1,0 +1,15 @@
+data/
+__pycache__/
+*.pyc
+*.pkl
+.DS_Store
+darkface/*.npz
+*.so
+*.tmp
+capture/grab
+capture/*.app/
+dist/
+*.dylib
+phone_faceid/vault.json
+phone_faceid/trials.jsonl
+phone_faceid/*.npz

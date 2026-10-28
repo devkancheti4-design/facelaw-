@@ -1,0 +1,22 @@
+Extended Yale B, cropped: 38 people, 2414 images (4x box-integrated to 48 x 42); ambient frame subtracted for 10 of 38 people
+
+LAW 2  energy of each person's images in the best 9 dimensions (convex Lambertian bound: >= 97.96%%)
+   median 98.95%   min 97.37%   max 99.20%
+
+ENROL  photometric stereo from lights <= 25 deg off-axis: 16-17 images a person
+
+LAW 2+4  identification on UNSEEN lights by the 9-dim subspace residual (38-way, nothing fitted to them)
+   subset 3 (26-50 deg): 456 probes   error   0.0%   own-subspace leftover |y - Py|/|y| median 0.140
+   subset 4 (51-77 deg): 601 probes   error   3.8%   own-subspace leftover |y - Py|/|y| median 0.208
+   subset 5 (78-130 deg): 714 probes   error  35.0%   own-subspace leftover |y - Py|/|y| median 0.458
+
+LAW 5+6  real probes (subset 3 lights) thinned to Nbar photons/pixel, Law 1 sensor; tau = 2.326; 48 probes x 20 draws
+  Nbar   FRR pred  FRR meas   FAR pred  FAR meas   | Law 6 lower <= oracle-free optimal | optimal: answered  wrong/answered
+     1    0.027    0.036      0.870    0.870    | bound 0.0000  (upper 0.0013)          |           0.94      0.0044
+     2    0.103    0.099      0.333    0.344    | bound 0.0000  (upper 0.0000)          |           1.00      0.0000
+     5    0.707    0.704      0.000    0.000    | bound 0.0000  (upper 0.0000)          |           1.00      0.0000
+    10    0.835    0.836      0.000    0.000    | bound 0.0000  (upper 0.0000)          |           1.00      0.0000
+    20    0.982    0.979      0.000    0.000    | bound 0.0000  (upper 0.0000)          |           1.00      0.0000
+    50    0.997    0.997      0.000    0.000    | bound 0.0000  (upper 0.0000)          |           1.00      0.0000
+
+37 s

@@ -1,0 +1,31 @@
+[Redacted public copy: the names of private tools are replaced. The hash-locked original's sha256 is 0280d20a9b2f0b4b6c998332f6f7829915b4de63d0389c1125f3d9bb75c081bb.]
+
+DARK FACE SPEC 50 SEALED TEST PROTOCOL  (written 2026-10-27 13:43:26, before any test image is read by SPEC 50)
+test images: the SAME 1,000 (8,143 faces) -- their FOURTH scored use (v1 1.14%, LAW 7 23.38%, AM 23.54%); SPEC 50 was designed on design / design-validation only, with no test information beyond those three numbers
+system: eyes = LAWS 1-4; splitter = stage 1 (sealed v1 law, lane-authored; fast exact FFT, 0 of 65,766,300 windows differ) with LAW 3b cap 3000 per level + LAW 8 placement ON; trained models = LAW 7c (additive trees on design [0:3800], FITTED AND FROZEN -- integer leaves round(4096 v), law50.json, run as compiled C (darkface_ctrees.py, equal to the integer law on design rows) -- not lane-authored, by the user's instruction; LAW 8 and AM on each image's best 5,000); AM off = 288 measured states (score x size x darkness [x perspective x crowd, scene evidence from the image's own confident faces]) on held-out design [3800:4250], held in the user's recall jar v4_am.jar; LAW 9 NMS 0.50
+the lane-authored the numbers: cap, NMS threshold, placement switch, AM switch (spec50_consts.json; each independently, proven by the evaluator + compiled C)
+design-validation: LAW 7c + LAW 8 placed, NMS 0.5: AP 31.42% (recall 78.6%); boxes as found 23.76%; AM over LAW 7c measured three ways on held-out design [3800:4250] -- state table 30.80%, + scene 30.53%, additive 31.17% -- none beat LAW 7c alone, so AM is OFF
+metric: VOC all-point AP at IoU 0.5 over all 1,000 test images and ALL labelled faces; run ONCE; reported whatever it is
+sealed claims: user_claim8.txt (above 50%) and prediction8.txt (mine, about 32%, range 26-40%), written with spec50.txt
+sha256 darkface_law.py 9c074237a978e8d920bc7dd5849650caad9690dbd65ada5ba1d02bf44b8cb0b8
+sha256 darkface_run.py d54da98bac3628cfdc65772a8ffb0da3ddfdf8554a2b361b53442aad49dd29cf
+sha256 darkface_v2.py bda78f37c8caa089ced51b34f9e4f3135398412c66711a7b60877226f2fdc68d
+sha256 darkface_v3.py 10c2bd786debf7ed139346d778f9cf4e712554146f12aee310ca0c66102cd78f
+sha256 darkface_v4.py f6f068721b4cd59e75cec608ae3fd77e78539362203e1368a3cf1e901861c9e5
+sha256 the private authoring script ed1e5b429b95fd40187ec104922b0275fd1213ae81f075f54f7f2036980a6cc8
+sha256 the private authoring script e5dce77ba55dec5adb1edd92093756b4d172b1356a7738b16222c65928787050
+sha256 yale_gate.py c6c137c7de40561c2eecd5aa901b83721eb3e482b76690326d470b9ac9971c3c
+sha256 lanes_sector.json d168829240de9bdb21571c96d3e106f33fb0f2c1453fe0c0ff561448eca47713
+sha256 lane_cast.json b19388c8693c73e73c01d1010389877fc71101d214eea809b6698fd5dc76438b
+sha256 darkface/split.json a5881a2e80e2d6c4bcd040cdb160721c3a315e8a50fcd724a1b648d6909009b8
+sha256 darkface/lanes.json 6f98fc4919548a483ef991abde601d82dff8422d3a91a735c223ac35d2176b3a
+sha256 darkface/v4_model.pkl e9cab24d5c1f227ed9b8304e6ed01485b719748f6b9ce5b5ae44e53c4bbba5d3
+sha256 darkface/v4_place.pkl 750256fdb6e8c22a603f6a290059240f1a9ece95f78b3ee443e242ae662d117d
+sha256 darkface_ctrees.py c08e241dff553973bdba4a6fcc764c3e88bfe4384c2858fd368ebbbeddfe7517
+sha256 darkface/law50.json 23bfd7b824aeab9c0c1d8c60130d534996fb33fe078f4bfc800d98afe8086dfb
+sha256 darkface/v4_am.jar 0e3da873dfacf7b1b98572bb92d9fbf09c4d35f5b26a554601b208e67761edb8
+sha256 darkface/v4_am_measure.npz 28bc56dcb334a026c817ed3504d7c8c4028dfe1b3d6e0d3c505a9bd1dbacf27a
+sha256 darkface/spec50_consts.json aa47ac359edb1021e9a06b099475a2d6e9df4006a8ece12cf0baa81a5fbb6325
+sha256 darkface/spec50.txt 47cf21a9b878e7802574592487fa9f4710c7c93b1426c0c97921b26813d7c835
+sha256 darkface/user_claim8.txt b464744551e568823decdccf6c8977f2251036a327c4dd0ec8a7eaad3cd72ce0
+sha256 darkface/prediction8.txt b46b3efc03abaea35d5f0a7531f5316aa5c2af0051b61611724e0403534e676e

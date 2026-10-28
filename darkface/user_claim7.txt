@@ -1,0 +1,4 @@
+USER CLAIM, LAW 7 (sealed 2026-10-27, before LAW 7 is fitted or scored on any image)
+words: "my claim is it reaches optimal cause its math and cacel out mechanism is awesome"
+scored as: the sealed test AP@0.5 of LAW 7 reaches the optimum of its candidates -- the ranked-perfectly ceiling,
+64.1% on design-validation -- and at the least beats the 46.0 bar.

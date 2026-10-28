@@ -1,0 +1,12 @@
+FACE ID HEAD-TO-HEAD, PROTOCOL 3 (Face Law phone pipeline v4).  Written 2026-10-28 13:40:12, before the v4 enrolment and its trials.
+the v3 block (protocol2.txt, sha256 7865a02e) is closed as it stands: 6 tries: OPEN 2, NOT YOU 1, NOT NOW 3.  The owner
+saw why: the same angle as the enrolment opened (bright-frame scores 1.8-3.9 over bars 0.2-0.8), another angle or eye
+position gave NOT YOU (scores -1.7 to -2.9).  v4, built before this protocol:
+  angles    enrolment at 5 angles (straight, higher, lower, left, right), each with its screen-lit and bright map
+  reads     8 reads per flash-checked window (3 pairs and 3 bright frames one by one, and both means), against every map
+  again     a second window by itself when the first is not OPEN; an attempt is OPEN if either window opens
+  bars      margins for 10 maps per law, leave-one-person-out with new people held out: full-light 0.402, dark 1.086 (no
+            held-out new person's try cleared any of an owner's 10 bars); liveness thresholds unchanged
+trials      as before, counted per ATTEMPT (up to 2 windows): owner 10 each in room light, dim, dark, daylight, another day;
+            strangers 5 attempts each; printed photo 10; phone screen 10.  Face ID is tried once per attempt.
+claims      mine: Face Law v4 opens the owner in room light and dim in most attempts; no stranger, photo or screen opens it.

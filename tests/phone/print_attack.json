@@ -1,0 +1,36 @@
+{
+ "still": {
+  "checks": 51,
+  "matched": 40,
+  "OPEN": 0,
+  "refused": {
+   "This looks flat, like a photo ": 40
+  }
+ },
+ "0.5 px/flash": {
+  "checks": 51,
+  "matched": 39,
+  "OPEN": 23,
+  "refused": {
+   "This looks flat, like a photo ": 16
+  }
+ },
+ "1 px/flash": {
+  "checks": 51,
+  "matched": 39,
+  "OPEN": 39,
+  "refused": {}
+ },
+ "1 px/flash (integer)": {
+  "checks": 51,
+  "matched": 40,
+  "OPEN": 40,
+  "refused": {}
+ },
+ "2 px/flash (integer)": {
+  "checks": 51,
+  "matched": 39,
+  "OPEN": 39,
+  "refused": {}
+ }
+}

@@ -1,0 +1,32 @@
+p1 fold 0 done  [695s]
+p1 fold 1 done  [1184s]
+-> <tmp>/1635fff3-943f-4d99-ae95-cdd45fa6e978/scratchpad/h2h/p1_summary.json  [1187s]
+p2 fold 0 done  [310s]
+p2 fold 1 done  [405s]
+-> <tmp>/1635fff3-943f-4d99-ae95-cdd45fa6e978/scratchpad/h2h/p2_summary.json  [413s]
+p3 fold 0 done: 1077 probes  [232s]
+p3 fold 1 done: 1074 probes  [473s]
+-> <tmp>/1635fff3-943f-4d99-ae95-cdd45fa6e978/scratchpad/h2h/p3_summary.json  [473s]
+p3 fold 0 done: 1077 probes  [47s]
+p3 fold 1 done: 1074 probes  [93s]
+-> <tmp>/1635fff3-943f-4d99-ae95-cdd45fa6e978/scratchpad/h2h/p3_nosearch_summary.json  [93s]
+SEALED CMU PIE HEAD-TO-HEAD  (written 2026-10-28 10:04:00, before any PIE image is read by these methods)
+data      CMU PIE lights=27.mat: 68 people x 21 flashes, 32 x 32, warped onto the law's canonical eyes at 48 x 42
+          (personal.pie_crops: the dataset's eye alignment, not the eye law: this tests the FACE CODES)
+use       FACE LAW v2 was designed on Extended Yale B only and has never been run on PIE; PIE was used before by
+          v1's tests (sealed identification, dark identification, the unlock tests) and as v1's fresh-stranger check
+methods   FACE LAW v2 (the sealed law: lanes_v2.json), FACE LAW v1 (as shipped: unlock_lanes.json's F), Gradientfaces,
+          Weberfaces, Tan-Triggs, LBP, LTP, LGBPHS, HOG, Eigenfaces, Eigenfaces-3, Fisherfaces, all at 48 x 42 (PIE is
+          32 x 32: a 96 x 84 copy would only be interpolation); the learned ones trained on Extended Yale B (all 37
+          people, automatic-eye crops), never on PIE; every method gets the best of the 9 placements (+-1 px)
+enrol     flash 10 (frontal) of each person; tries: the other 20 flashes, each at N = 20 and N = 1000 photons per
+          pixel (Law 1 with auto-exposure), one draw, seed 20261028
+metric    owner accepted %% when 0 / 1 in 1,000 strangers get in, raw score (one threshold) and T-norm against the
+          other half of the PIE people (even / odd), all light and the front-light class; run ONCE; reported as is
+prediction (mine, written before the run): at N = 1000 most methods sit near their ceiling (PIE saturated an earlier
+          identification test); by the raw score at 1 in 1,000, FACE LAW v2 is in the top three but not certainly
+          first; at N = 20 the ratio codes (FACE LAW v2, Weberfaces, LTP) lead the gradient and subspace methods
+pie_v2_protocol sha256 8d0bc075758bf4cc5b5f86598d1057ca5709e3f54cf6e133dba04e5177c00a8c
+p4 fold 0 done: 1360 tries  [284s]
+p4 fold 1 done: 1360 tries  [357s]
+pie_v2_results.json sha256 2ac4f6159bb0d3c2f56c8ba05cc0ea1878e28a9778911d0f983b55eee0fc025b  [357s]

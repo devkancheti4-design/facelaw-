@@ -1,0 +1,4 @@
+MY PREDICTION, LAW 7 (sealed 2026-10-27, before LAW 7 is fitted or scored on any image)
+sealed test AP@0.5 about 12% (range 5-25%): roughly 10x the 1.14% of v1, NOT beating the 46.0 bar.
+reason: gain/offset cancellation removes nuisance, it adds no evidence; tiny (under 10 px) night faces against
+street clutter are a ranking problem the window holds too few pixels to settle.

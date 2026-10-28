@@ -1,0 +1,26 @@
+[Redacted public copy: the names of private tools are replaced. The hash-locked original's sha256 is 15815ea1b67e0b1c81b3c7855964c52564424c8431404d3e9f89d881e7802563.]
+
+DARK FACE LAW 7 SEALED TEST PROTOCOL  (written 2026-10-27 09:14:26, before any test image is read by LAW 7)
+data: as protocol.txt (DarkFace_Train_2021.zip, 6,000 labelled night images); split.json unchanged
+test images: the SAME 1,000 (8,143 faces) as the v1 sealed test -- this is their SECOND use: v1 scored AP 1.14% on them; LAW 7 was designed after that number was known, with no other test information, on the 4,700 design and 300 design-validation images only
+stage 1: the sealed v1 law exactly (lanes.json, lane-authored), raw peaks, 300 per level
+LAW 7: additive-tree log-odds over the v3 description (window z, hog, dog; fine level k-3; context level k+3); 1115 trees; integers throughout; design-validation AP of the integer law not re-run (float trees 25.59%; integer vs float max |diff| 0.0077 log-odds on 20,000 design rows)
+runtime: LAW 7 rebuilt from the authored lanes ONLY (lanes7.json: every lane independently, proven on all its rows by Python and compiled C; 0 wrong; 0 entries differing from law7.json)
+metric: VOC all-point AP at IoU 0.5 over all 1,000 test images and ALL labelled faces; detections = LAW 7 boxes after NMS 0.3; run ONCE; reported whatever it is
+reference: fine-tuned DSFD 46.0 mAP (HLA-Face, CVPR 2021); their protocol differs (indicative only)
+sealed claims: user_claim7.txt (reaches the optimum of its candidates, 64.1% on design-validation; at least beats 46.0) and prediction7.txt (mine, about 12%, range 5-25%), both written before LAW 7 was fitted
+sha256 darkface_law.py 9c074237a978e8d920bc7dd5849650caad9690dbd65ada5ba1d02bf44b8cb0b8
+sha256 darkface_run.py d54da98bac3628cfdc65772a8ffb0da3ddfdf8554a2b361b53442aad49dd29cf
+sha256 the private authoring script ed1e5b429b95fd40187ec104922b0275fd1213ae81f075f54f7f2036980a6cc8
+sha256 darkface_v2.py bda78f37c8caa089ced51b34f9e4f3135398412c66711a7b60877226f2fdc68d
+sha256 darkface_v3.py 10c2bd786debf7ed139346d778f9cf4e712554146f12aee310ca0c66102cd78f
+sha256 the private authoring script e5dce77ba55dec5adb1edd92093756b4d172b1356a7738b16222c65928787050
+sha256 yale_gate.py c6c137c7de40561c2eecd5aa901b83721eb3e482b76690326d470b9ac9971c3c
+sha256 lanes_sector.json d168829240de9bdb21571c96d3e106f33fb0f2c1453fe0c0ff561448eca47713
+sha256 lane_cast.json b19388c8693c73e73c01d1010389877fc71101d214eea809b6698fd5dc76438b
+sha256 darkface/split.json a5881a2e80e2d6c4bcd040cdb160721c3a315e8a50fcd724a1b648d6909009b8
+sha256 darkface/lanes.json 6f98fc4919548a483ef991abde601d82dff8422d3a91a735c223ac35d2176b3a
+sha256 darkface/law7.json 34516a0a6809f21a9f71fb54072e1f148ec7d4bad616e7233c03d328736a04d1
+sha256 darkface/lanes7.json d40009f9eb4ebfe22d60d7d05416a8182e699750e22b61f35af15b4b3cb70663
+sha256 darkface/user_claim7.txt 52cfce754ec359f096276a5f72223af892aec3e3781221baa8f3e48d3fb73869
+sha256 darkface/prediction7.txt 90e8f724b18f227900a7e53aac6683ef9a57e2dbcaf144265533b650082e987d

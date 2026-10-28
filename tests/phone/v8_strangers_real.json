@@ -1,0 +1,616 @@
+[
+ {
+  "owner": "yaleB01",
+  "stranger": {
+   "frames": 4580,
+   "eyes": 2894,
+   "match": 12,
+   "best": 19.21,
+   "hits": [
+    [
+     "yaleB05",
+     "yaleB05_P00A-095E+00.pgm",
+     "printed",
+     6.62,
+     "96 angle 2"
+    ],
+    [
+     "yaleB16",
+     "yaleB16_P00A+085E-20.pgm",
+     "printed",
+     0.57,
+     "96 angle 2"
+    ],
+    [
+     "yaleB17",
+     "yaleB17_P00A+000E-35.pgm",
+     "printed",
+     19.21,
+     "96 angle 2"
+    ],
+    [
+     "yaleB17",
+     "yaleB17_P00A+050E+00.pgm",
+     "printed",
+     0.44,
+     "96 angle 1"
+    ],
+    [
+     "yaleB17",
+     "yaleB17_P00A-050E+00.pgm",
+     "as is",
+     7.02,
+     "96 angle 1"
+    ],
+    [
+     "yaleB22",
+     "yaleB22_P00A+095E+00.pgm",
+     "printed",
+     2.92,
+     "96 angle 3"
+    ],
+    [
+     "yaleB22",
+     "yaleB22_P00A+110E+15.pgm",
+     "as is",
+     0.82,
+     "96 angle 1"
+    ],
+    [
+     "yaleB22",
+     "yaleB22_P00A-035E-20.pgm",
+     "as is",
+     16.93,
+     "96 angle 1"
+    ],
+    [
+     "yaleB24",
+     "yaleB24_P00A-110E-20.pgm",
+     "printed",
+     2.12,
+     "96 angle 5"
+    ],
+    [
+     "yaleB29",
+     "yaleB29_P00A-010E-20.pgm",
+     "printed",
+     9.06,
+     "96 angle 5"
+    ],
+    [
+     "yaleB38",
+     "yaleB38_P00A+095E+00.pgm",
+     "as is",
+     0.81,
+     "96 angle 3"
+    ],
+    [
+     "yaleB39",
+     "yaleB39_P00A+095E+00.pgm",
+     "as is",
+     1.19,
+     "96 angle 3"
+    ]
+   ]
+  },
+  "own": {
+   "frames": 128,
+   "eyes": 88,
+   "match": 30
+  }
+ },
+ {
+  "owner": "yaleB07",
+  "stranger": {
+   "frames": 4580,
+   "eyes": 2921,
+   "match": 16,
+   "best": 13.53,
+   "hits": [
+    [
+     "yaleB02",
+     "yaleB02_P00A-010E-20.pgm",
+     "printed",
+     3.8,
+     "96 angle 2"
+    ],
+    [
+     "yaleB05",
+     "yaleB05_P00A-095E+00.pgm",
+     "printed",
+     3.29,
+     "96 angle 5"
+    ],
+    [
+     "yaleB12",
+     "yaleB12_P00A-085E-20.pgm",
+     "as is",
+     0.26,
+     "96 angle 2"
+    ],
+    [
+     "yaleB15",
+     "yaleB15_P00A-010E-20.pgm",
+     "printed",
+     0.68,
+     "96 angle 4"
+    ],
+    [
+     "yaleB22",
+     "yaleB22_P00A+095E+00.pgm",
+     "printed",
+     8.37,
+     "96 angle 4"
+    ],
+    [
+     "yaleB22",
+     "yaleB22_P00A+110E+15.pgm",
+     "printed",
+     4.35,
+     "96 angle 2"
+    ],
+    [
+     "yaleB23",
+     "yaleB23_P00A+095E+00.pgm",
+     "as is",
+     0.39,
+     "96 angle 2"
+    ],
+    [
+     "yaleB24",
+     "yaleB24_P00A+120E+00.pgm",
+     "printed",
+     11.36,
+     "96 angle 4"
+    ],
+    [
+     "yaleB28",
+     "yaleB28_P00A+085E-20.pgm",
+     "printed",
+     0.41,
+     "96 angle 2"
+    ],
+    [
+     "yaleB29",
+     "yaleB29_P00A+000E-35.pgm",
+     "printed",
+     13.53,
+     "96 angle 1"
+    ],
+    [
+     "yaleB29",
+     "yaleB29_P00A-010E-20.pgm",
+     "as is",
+     4.88,
+     "96 angle 5"
+    ],
+    [
+     "yaleB29",
+     "yaleB29_P00A-010E-20.pgm",
+     "printed",
+     0.74,
+     "96 angle 2"
+    ],
+    [
+     "yaleB29",
+     "yaleB29_P00A-020E-10.pgm",
+     "printed",
+     9.89,
+     "96 angle 5"
+    ],
+    [
+     "yaleB34",
+     "yaleB34_P00A+050E-40.pgm",
+     "as is",
+     1.05,
+     "96 angle 2"
+    ],
+    [
+     "yaleB38",
+     "yaleB38_P00A+095E+00.pgm",
+     "as is",
+     0.8,
+     "96 angle 2"
+    ],
+    [
+     "yaleB39",
+     "yaleB39_P00A+095E+00.pgm",
+     "as is",
+     1.26,
+     "96 angle 2"
+    ]
+   ]
+  },
+  "own": {
+   "frames": 128,
+   "eyes": 96,
+   "match": 42
+  }
+ },
+ {
+  "owner": "yaleB15",
+  "stranger": {
+   "frames": 4582,
+   "eyes": 2950,
+   "match": 14,
+   "best": 10.35,
+   "hits": [
+    [
+     "yaleB17",
+     "yaleB17_P00A+000E-35.pgm",
+     "printed",
+     7.2,
+     "96 angle 5"
+    ],
+    [
+     "yaleB17",
+     "yaleB17_P00A-110E+15.pgm",
+     "printed",
+     7.95,
+     "96 angle 3"
+    ],
+    [
+     "yaleB18",
+     "yaleB18_P00A-110E+15.pgm",
+     "printed",
+     10.35,
+     "96 angle 1"
+    ],
+    [
+     "yaleB22",
+     "yaleB22_P00A+095E+00.pgm",
+     "printed",
+     6.92,
+     "96 angle 1"
+    ],
+    [
+     "yaleB26",
+     "yaleB26_P00A+050E-40.pgm",
+     "as is",
+     0.26,
+     "96 angle 4"
+    ],
+    [
+     "yaleB28",
+     "yaleB28_P00A+085E-20.pgm",
+     "printed",
+     2.43,
+     "96 angle 2"
+    ],
+    [
+     "yaleB29",
+     "yaleB29_P00A+000E-35.pgm",
+     "printed",
+     8.6,
+     "96 angle 4"
+    ],
+    [
+     "yaleB29",
+     "yaleB29_P00A+005E-10.pgm",
+     "as is",
+     4.43,
+     "96 angle 5"
+    ],
+    [
+     "yaleB29",
+     "yaleB29_P00A-010E-20.pgm",
+     "as is",
+     1.59,
+     "96 angle 2"
+    ],
+    [
+     "yaleB29",
+     "yaleB29_P00A-020E-10.pgm",
+     "printed",
+     0.75,
+     "96 angle 3"
+    ],
+    [
+     "yaleB29",
+     "yaleB29_P00A-025E+00.pgm",
+     "printed",
+     2.59,
+     "96 angle 3"
+    ],
+    [
+     "yaleB31",
+     "yaleB31_P00A-120E+00.pgm",
+     "as is",
+     1.17,
+     "96 angle 2"
+    ],
+    [
+     "yaleB38",
+     "yaleB38_P00A+095E+00.pgm",
+     "as is",
+     1.4,
+     "96 angle 3"
+    ],
+    [
+     "yaleB39",
+     "yaleB39_P00A+095E+00.pgm",
+     "as is",
+     3.26,
+     "96 angle 2"
+    ]
+   ]
+  },
+  "own": {
+   "frames": 126,
+   "eyes": 56,
+   "match": 35
+  }
+ },
+ {
+  "owner": "yaleB21",
+  "stranger": {
+   "frames": 4580,
+   "eyes": 2888,
+   "match": 11,
+   "best": 8.5,
+   "hits": [
+    [
+     "yaleB05",
+     "yaleB05_P00A-070E+00.pgm",
+     "as is",
+     0.68,
+     "96 angle 3"
+    ],
+    [
+     "yaleB05",
+     "yaleB05_P00A-095E+00.pgm",
+     "printed",
+     0.26,
+     "96 angle 3"
+    ],
+    [
+     "yaleB22",
+     "yaleB22_P00A+095E+00.pgm",
+     "printed",
+     4.57,
+     "96 angle 3"
+    ],
+    [
+     "yaleB24",
+     "yaleB24_P00A-110E+15.pgm",
+     "printed",
+     8.5,
+     "96 angle 2"
+    ],
+    [
+     "yaleB27",
+     "yaleB27_P00A+070E+00.pgm",
+     "printed",
+     1.67,
+     "96 angle 3"
+    ],
+    [
+     "yaleB27",
+     "yaleB27_P00A-070E+00.pgm",
+     "printed",
+     3.56,
+     "96 angle 3"
+    ],
+    [
+     "yaleB28",
+     "yaleB28_P00A+085E-20.pgm",
+     "printed",
+     0.85,
+     "96 angle 2"
+    ],
+    [
+     "yaleB29",
+     "yaleB29_P00A+000E-35.pgm",
+     "printed",
+     2.18,
+     "96 angle 2"
+    ],
+    [
+     "yaleB29",
+     "yaleB29_P00A+035E-20.pgm",
+     "as is",
+     0.06,
+     "96 angle 3"
+    ],
+    [
+     "yaleB29",
+     "yaleB29_P00A-010E-20.pgm",
+     "printed",
+     1.93,
+     "96 angle 2"
+    ],
+    [
+     "yaleB39",
+     "yaleB39_P00A+095E+00.pgm",
+     "as is",
+     1.22,
+     "96 angle 2"
+    ]
+   ]
+  },
+  "own": {
+   "frames": 128,
+   "eyes": 96,
+   "match": 40
+  }
+ },
+ {
+  "owner": "yaleB27",
+  "stranger": {
+   "frames": 4580,
+   "eyes": 2888,
+   "match": 7,
+   "best": 8.3,
+   "hits": [
+    [
+     "yaleB18",
+     "yaleB18_P00A-110E+15.pgm",
+     "printed",
+     8.3,
+     "96 angle 3"
+    ],
+    [
+     "yaleB24",
+     "yaleB24_P00A-110E+15.pgm",
+     "printed",
+     2.3,
+     "96 angle 2"
+    ],
+    [
+     "yaleB25",
+     "yaleB25_P00A-070E+00.pgm",
+     "printed",
+     0.85,
+     "96 angle 2"
+    ],
+    [
+     "yaleB29",
+     "yaleB29_P00A+000E-35.pgm",
+     "printed",
+     1.07,
+     "96 angle 1"
+    ],
+    [
+     "yaleB35",
+     "yaleB35_P00A+020E-40.pgm",
+     "as is",
+     2.82,
+     "96 angle 2"
+    ],
+    [
+     "yaleB38",
+     "yaleB38_P00A+095E+00.pgm",
+     "as is",
+     0.78,
+     "96 angle 2"
+    ],
+    [
+     "yaleB39",
+     "yaleB39_P00A+095E+00.pgm",
+     "as is",
+     1.05,
+     "96 angle 2"
+    ]
+   ]
+  },
+  "own": {
+   "frames": 128,
+   "eyes": 99,
+   "match": 32
+  }
+ },
+ {
+  "owner": "yaleB33",
+  "stranger": {
+   "frames": 4580,
+   "eyes": 2951,
+   "match": 14,
+   "best": 10.94,
+   "hits": [
+    [
+     "yaleB16",
+     "yaleB16_P00A+085E-20.pgm",
+     "as is",
+     0.44,
+     "96 angle 4"
+    ],
+    [
+     "yaleB19",
+     "yaleB19_P00A+020E-40.pgm",
+     "as is",
+     0.07,
+     "96 angle 3"
+    ],
+    [
+     "yaleB22",
+     "yaleB22_P00A+095E+00.pgm",
+     "printed",
+     4.47,
+     "96 angle 3"
+    ],
+    [
+     "yaleB22",
+     "yaleB22_P00A+110E+15.pgm",
+     "printed",
+     1.15,
+     "96 angle 4"
+    ],
+    [
+     "yaleB23",
+     "yaleB23_P00A-110E-20.pgm",
+     "printed",
+     8.54,
+     "96 angle 3"
+    ],
+    [
+     "yaleB24",
+     "yaleB24_P00A-110E+15.pgm",
+     "printed",
+     10.94,
+     "96 angle 4"
+    ],
+    [
+     "yaleB28",
+     "yaleB28_P00A+085E-20.pgm",
+     "printed",
+     0.0,
+     "96 angle 2"
+    ],
+    [
+     "yaleB28",
+     "yaleB28_P00A-095E+00.pgm",
+     "printed",
+     5.69,
+     "96 angle 3"
+    ],
+    [
+     "yaleB29",
+     "yaleB29_P00A+000E-35.pgm",
+     "printed",
+     2.44,
+     "96 angle 3"
+    ],
+    [
+     "yaleB29",
+     "yaleB29_P00A-010E-20.pgm",
+     "as is",
+     0.49,
+     "96 angle 2"
+    ],
+    [
+     "yaleB29",
+     "yaleB29_P00A-010E-20.pgm",
+     "printed",
+     7.25,
+     "96 angle 4"
+    ],
+    [
+     "yaleB31",
+     "yaleB31_P00A-020E-40.pgm",
+     "as is",
+     0.7,
+     "96 angle 3"
+    ],
+    [
+     "yaleB38",
+     "yaleB38_P00A+095E+00.pgm",
+     "as is",
+     1.72,
+     "96 angle 2"
+    ],
+    [
+     "yaleB39",
+     "yaleB39_P00A+095E+00.pgm",
+     "as is",
+     1.54,
+     "96 angle 2"
+    ]
+   ]
+  },
+  "own": {
+   "frames": 128,
+   "eyes": 55,
+   "match": 31
+  }
+ }
+]

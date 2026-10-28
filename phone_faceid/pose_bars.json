@@ -1,0 +1,18 @@
+{
+ "rule": "NEAR4: a try is compared with the 4 enrolled views nearest the angle the pose law reads (soft estimate); each view's bar = the best bundle try compared with it + the margin; OPEN if either law clears",
+ "margin96": 0.6084768772125244,
+ "margin48": 1.5308442115783691,
+ "owner_open_phone_like": 0.7548504446240906,
+ "owner_open_phone_like_by_yaw": {
+  "-30": 0.8084415584415584,
+  "-20": 0.7472222222222222,
+  "-10": 0.7175675675675676,
+  "0": 0.7377717391304348,
+  "10": 0.7540983606557377,
+  "20": 0.6936813186813187,
+  "30": 0.8402366863905325
+ },
+ "pose_design_sha256": "969d28f4cf9d8397e23aa6b89dbd9bc2d37b5075dca656a9aa1246f0d728fbf4",
+ "pose_lanes_sha256": "4860718afbc92e41367f8980da5efec13dea3377672e024371a9e86be4c6d0fa",
+ "bundle_sha256": "97f0eddee4f4f5e34a894efb74df74e768dd97fc8e3d4d1dfc4f90f913a6602d"
+}

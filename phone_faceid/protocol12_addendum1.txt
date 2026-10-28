@@ -1,0 +1,10 @@
+PROTOCOL 12, ADDENDUM 1 (head to head with this phone's own face unlock).  Written 2026-10-28 19:45:43.  Protocol 12 (sha256 07fa9bb8...) stands; the lock is unchanged.
+the phone   vivo I2301, Android 15.  Its own face unlock is registered with Android as a CONVENIENCE-class biometric (strength
+            4095, the lowest class; fingerprint on the same phone: STRONG, 15).  Its results are not readable from the phone's
+            logs, so the tester taps them, as for Face ID.
+the trial   per attempt: Face Law first (counted as before); then the phone is locked and woken and the same person (or the
+            printed photo, or the screen) tries Android's face unlock in the same light; the tester taps Android opened /
+            refused / not tried; Face ID likewise when the iPhone is there.  Who: owner / stranger (consenting; no image kept) /
+            printed photo / phone screen.  Light: as tapped.
+counted     per attempt and per who x light: Face Law opened, Android opened (of tried), Face ID opened (of tried).
+files       server.py 3a9aad9d91b22a46  index.html 24b65a057e9659c9

@@ -1,0 +1,28 @@
+[Redacted public copy: the names of private tools are replaced. The hash-locked original's sha256 is 23159dff9f9d583a6fe004f153da4d504c715a23d99e0ef46d51e592ae8d12f1.]
+
+DARK FACE AM SEALED TEST PROTOCOL  (written 2026-10-27 10:57:43, before any test image is read by AM)
+test images: the SAME 1,000 (8,143 faces) -- their THIRD scored use (v1 1.14%, LAW 7 23.38%); designed on design / design-validation only, with no test information beyond those two numbers
+system: eyes + splitter = sealed stage 1 (300 peaks / level); trained models = LAW 7 v3 + LAW 7 v2, rebuilt from the authored lanes only; AM = 288-state law over their numbers (v3 score, v2 - v3 disagreement, size band), measured on design [3000:3800], authored as integer lanes; NMS 0.3 as sealed
+MODE: cancel   (chosen on design-validation; v3 = LAW 7 alone, cancel = (1 - w) v3 + w v2 with w the synthesis's one number, table = AM's 288 measured states from the recall jar)
+design-validation: NOT RUN (skipped at the user's request for time); w chosen on held-out design images [3000:3800], which neither model saw
+metric: VOC all-point AP at IoU 0.5 over all 1,000 test images and ALL labelled faces; run ONCE; reported whatever it is
+sha256 darkface_law.py 9c074237a978e8d920bc7dd5849650caad9690dbd65ada5ba1d02bf44b8cb0b8
+sha256 darkface_run.py d54da98bac3628cfdc65772a8ffb0da3ddfdf8554a2b361b53442aad49dd29cf
+sha256 the private authoring script ed1e5b429b95fd40187ec104922b0275fd1213ae81f075f54f7f2036980a6cc8
+sha256 darkface_v2.py bda78f37c8caa089ced51b34f9e4f3135398412c66711a7b60877226f2fdc68d
+sha256 darkface_v3.py 10c2bd786debf7ed139346d778f9cf4e712554146f12aee310ca0c66102cd78f
+sha256 darkface_am.py 56936ad2e3a4dd4fc4c21537d2ce86e851b99ebdf1c501e4063e98cc5e8cdda3
+sha256 the private authoring script e5dce77ba55dec5adb1edd92093756b4d172b1356a7738b16222c65928787050
+sha256 the private authoring script dd344b26a6cf17e08cfb4b67ed3d17022ed10a11ad9d7248aee6260ca0cb3fd2
+sha256 yale_gate.py c6c137c7de40561c2eecd5aa901b83721eb3e482b76690326d470b9ac9971c3c
+sha256 lanes_sector.json d168829240de9bdb21571c96d3e106f33fb0f2c1453fe0c0ff561448eca47713
+sha256 lane_cast.json b19388c8693c73e73c01d1010389877fc71101d214eea809b6698fd5dc76438b
+sha256 darkface/split.json a5881a2e80e2d6c4bcd040cdb160721c3a315e8a50fcd724a1b648d6909009b8
+sha256 darkface/lanes.json 6f98fc4919548a483ef991abde601d82dff8422d3a91a735c223ac35d2176b3a
+sha256 darkface/law7.json 34516a0a6809f21a9f71fb54072e1f148ec7d4bad616e7233c03d328736a04d1
+sha256 darkface/lanes7.json d40009f9eb4ebfe22d60d7d05416a8182e699750e22b61f35af15b4b3cb70663
+sha256 darkface/lanes_am.json fcb8f6c642037323f84757dd86fa744aaba259ad478ad8a18c4bf1b43bf41419
+sha256 darkface/am_measure.npz 162ccc7134e839b31324bd546d56a44a6597e3057e9ad6d8d9533315353bc7f8
+sha256 darkface/am.jar a205507e8e36e44bacac2a701dc53d7533fe0018c2427da6cd52a4e634127544
+sha256 darkface/user_claim_am.txt 643f193c6d5fcdcb211baf80183996add25972ca5020795ddee362373c97bbf6
+sha256 darkface/prediction_am.txt 3ce066e9fc78e3ea495bc637717c86a0eabfcd6855b8b3c5b918d9bc73356532

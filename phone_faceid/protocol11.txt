@@ -1,0 +1,28 @@
+FACE ID HEAD-TO-HEAD, PROTOCOL 11 (Face Law phone pipeline v8: MAPPED ANGLES).  Written 2026-10-28 18:05:03 (rewritten before any trial: the page's angle wording, the scoreboard, the enrolment closing at Done or after 5 minutes).
+the v7 blocks (protocol 10 + addendum 1) are closed as they stand: before the third enrolment 9 attempts {'OPEN': 3, 'NOT NOW': 1, 'NOT NOW (recognised, check refused)': 3, 'NOT YOU': 2};
+            since the third enrolment (2026-10-28 17:36:59) 15 attempts {'OPEN': 6, 'NOT YOU': 3, 'NOT NOW (recognised, check refused)': 5, 'NOT NOW': 1}.
+why v8      the owner: "let the user decide how many angles, which angles, map them; no outsider ever"; "add an angle when
+            it did not open, with the password; from then that angle works, not exact but +-".  Measured: on the owner's
+            phone the pose law's angle sat at the grid's edge on 71-100% of the frames of the NOT YOU tries; on real
+            Extended Yale B photographs (true angle 0/0) it reads yaw within 10 deg 96%, the edge 6%.  v8 never uses the
+            angle read to choose which views a try is compared with.
+the lock    ENROL  a password (kept only as a salted PBKDF2-SHA256 hash, 200000 rounds); then "Map this angle" as many
+                   times as the owner wants: about 2.5 s of frames per angle -> one view (the sharp frames' majority maps).
+            CLOSE  the enrolment closes at Done (or 5 minutes after it started); after that no angle is mapped
+                   without the password.
+            ADD    after a NOT YOU, the owner's password turns that try's frames (kept in memory only, 2 minutes) into one
+                   more view; 5 wrong passwords in 5 minutes lock adding for 5 minutes.
+            MATCH  every try compared with EVERY mapped view, both laws; each view's bar = the best of the 22362 rendered
+                   stranger tries (pose_bundle.npz) compared with it + the MAPPED margin (96: 0.536, 48:
+                   1.531: leave-one-person-out, the smallest that kept every held-out new person out at
+                   all 35 views at once, so at ANY choice of views).  The pose law only picks which points are counted.
+            CHECK  unchanged (v7.0's flash check).  NOT PHOTO-PROOF (addendum 1): no photo or print result is claimed.
+the bet     simulation (mapped_match.json, owner frame-tries in the phone-like condition): at the mapped angles
+            89.2% (1 angle) to 95.2% (9 angles); 10 deg off much less (a view holds about +-5 deg);
+            further away 0-0.6%.  The server end to end on renders (owner yaleB05 out of the bundle; 3 angles mapped):
+            owner 12/12 at them, 18/24 at 5-10 deg off, 2/10 at 20+ deg; an angle refused 0/10 opened 9/9 after it was
+            added with the password; wrong passwords refused, the lockout holds; strangers 0/252 (closest 0.55 below).
+            On the phone: the owner opens at the angles mapped (and near them); elsewhere NOT YOU until the angle is added;
+            no stranger opens.
+trials      counted per attempt; the scoreboard counts only the current enrolment's trials.  No image is written to disk.
+files       server.py f9a5e1f7ad1a4a70  index.html 626386d23026883d  mapped_match.json 6e3391f8f34ead69  pose_bundle.npz 97f0eddee4f4f5e3

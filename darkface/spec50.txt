@@ -1,0 +1,16 @@
+SPEC 50 -- DARK FACE above 50% AP@0.5, strictly encoded (written 2026-10-27, after sealed LAW 7 = 23.38%)
+Every law below is a MEASURED integer table on the 4,700 design images; every table is authored as integer lanes,
+alive , proven on every row by
+Python and compiled C, rebuilt from the lanes ONLY; each law is accepted only if it moves design-validation.
+Measured now (validation, 2,621 faces): found 54.6% | suppressed 9.5% | misplaced (IoU 0.3-0.5) 14.7% | no candidate 21.2%
+
+LAW 3b  CANDIDATES   stage 1 keeps every peak (cap 300 -> 3000 per level), the minsig gate re-measured per level
+                     target: a candidate at IoU >= 0.3 for >= 92% of faces (now 78.8%)
+LAW 8   PLACEMENT    the box offset (dx, dy, d log size) of each candidate, measured: additive trees on the LAW 7
+                     description, integer leaves; target: misplaced 14.7 -> <= 4 points
+LAW 9   SUPPRESSION  the overlap threshold measured on validation (0.3, 0.4, 0.5, 0.6); target: suppressed 9.5 -> <= 3
+LAW 7c  RANKING      LAW 7 retrained on the LAW 3b candidates, all 4,700 design images, cascade rounds of its own
+                     surviving look-alikes (weighted exactly), context two octaves out for faces < 8 px;
+                     target: precision >= 65% held to recall 75%
+ARITHMETIC  ceiling ~ 54.6 + 6.5 (suppression) + 10.7 (placement) + 13 (candidates) ~ 85%; AP > 50% needs mean
+            precision >= 59% over that recall range.  Today: 93% at the top 100, 60% at recall ~23%, 40% at ~30%.

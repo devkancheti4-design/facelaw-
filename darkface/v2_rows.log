@@ -1,0 +1,11 @@
+  rows from 200 / 2000 design images  (172s)
+  rows from 400 / 2000 design images  (330s)
+  rows from 600 / 2000 design images  (493s)
+  rows from 800 / 2000 design images  (662s)
+  rows from 1000 / 2000 design images  (824s)
+  rows from 1200 / 2000 design images  (990s)
+  rows from 1400 / 2000 design images  (1164s)
+  rows from 1600 / 2000 design images  (1362s)
+  rows from 1800 / 2000 design images  (1592s)
+  rows from 2000 / 2000 design images  (1792s)
+rows: 639882 (faces 39882 of which label-aligned 16313; negatives 600000 standing for 8899514)  [1795s]

@@ -1,0 +1,4 @@
+USER CLAIM, DARK UNLOCK (sealed 2026-10-27, before the unlock law reads any PIE image)
+words: "even in dark it should open", "we need to see benchmark of these kind like iphone"
+scored as: comparable to a phone unlock -- strangers who get in <= 1 in 50,000 (Android strong-biometric bar) AND, in
+front light (the screen case), the owner opens >= 95% at >= 100 photons per face pixel.

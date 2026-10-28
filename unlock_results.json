@@ -1,0 +1,134 @@
+{
+ "all": {
+  "5": {
+   "owner_unlocks": 0.20955882352941177,
+   "owner_too_dark": 0.06053921568627451,
+   "stranger_unlocks": 0.0,
+   "strangers": 138720,
+   "owners": 4080,
+   "stranger_unlock_count": 0
+  },
+  "10": {
+   "owner_unlocks": 0.3139705882352941,
+   "owner_too_dark": 0.058823529411764705,
+   "stranger_unlocks": 0.0,
+   "strangers": 138720,
+   "owners": 4080,
+   "stranger_unlock_count": 0
+  },
+  "20": {
+   "owner_unlocks": 0.408578431372549,
+   "owner_too_dark": 0.058823529411764705,
+   "stranger_unlocks": 7.2087658592848905e-06,
+   "strangers": 138720,
+   "owners": 4080,
+   "stranger_unlock_count": 1
+  },
+  "50": {
+   "owner_unlocks": 0.5330882352941176,
+   "owner_too_dark": 0.057352941176470586,
+   "stranger_unlocks": 0.0,
+   "strangers": 138720,
+   "owners": 4080,
+   "stranger_unlock_count": 0
+  },
+  "100": {
+   "owner_unlocks": 0.5948529411764706,
+   "owner_too_dark": 0.059313725490196076,
+   "stranger_unlocks": 7.2087658592848905e-06,
+   "strangers": 138720,
+   "owners": 4080,
+   "stranger_unlock_count": 1
+  },
+  "200": {
+   "owner_unlocks": 0.6355392156862745,
+   "owner_too_dark": 0.06397058823529411,
+   "stranger_unlocks": 0.0,
+   "strangers": 138720,
+   "owners": 4080,
+   "stranger_unlock_count": 0
+  },
+  "500": {
+   "owner_unlocks": 0.6551470588235294,
+   "owner_too_dark": 0.060784313725490195,
+   "stranger_unlocks": 0.0,
+   "strangers": 138720,
+   "owners": 4080,
+   "stranger_unlock_count": 0
+  },
+  "1000": {
+   "owner_unlocks": 0.6404411764705882,
+   "owner_too_dark": 0.06274509803921569,
+   "stranger_unlocks": 0.0,
+   "strangers": 138720,
+   "owners": 4080,
+   "stranger_unlock_count": 0
+  }
+ },
+ "front": {
+  "5": {
+   "owner_unlocks": 0.23275862068965517,
+   "owner_too_dark": 0.0,
+   "stranger_unlocks": 0.0,
+   "strangers": 59160,
+   "owners": 1740,
+   "stranger_unlock_count": 0
+  },
+  "10": {
+   "owner_unlocks": 0.3667605633802817,
+   "owner_too_dark": 0.0,
+   "stranger_unlocks": 0.0,
+   "strangers": 60350,
+   "owners": 1775,
+   "stranger_unlock_count": 0
+  },
+  "20": {
+   "owner_unlocks": 0.49800796812749004,
+   "owner_too_dark": 0.0,
+   "stranger_unlocks": 0.0,
+   "strangers": 59738,
+   "owners": 1757,
+   "stranger_unlock_count": 0
+  },
+  "50": {
+   "owner_unlocks": 0.670487106017192,
+   "owner_too_dark": 0.0,
+   "stranger_unlocks": 0.0,
+   "strangers": 59330,
+   "owners": 1745,
+   "stranger_unlock_count": 0
+  },
+  "100": {
+   "owner_unlocks": 0.7530294287362954,
+   "owner_too_dark": 0.0,
+   "stranger_unlocks": 0.0,
+   "strangers": 58922,
+   "owners": 1733,
+   "stranger_unlock_count": 0
+  },
+  "200": {
+   "owner_unlocks": 0.8180272108843537,
+   "owner_too_dark": 0.0,
+   "stranger_unlocks": 0.0,
+   "strangers": 59976,
+   "owners": 1764,
+   "stranger_unlock_count": 0
+  },
+  "500": {
+   "owner_unlocks": 0.8502277904328018,
+   "owner_too_dark": 0.0,
+   "stranger_unlocks": 0.0,
+   "strangers": 59704,
+   "owners": 1756,
+   "stranger_unlock_count": 0
+  },
+  "1000": {
+   "owner_unlocks": 0.8450946643717728,
+   "owner_too_dark": 0.0,
+   "stranger_unlocks": 0.0,
+   "strangers": 59262,
+   "owners": 1743,
+   "stranger_unlock_count": 0
+  }
+ }
+}

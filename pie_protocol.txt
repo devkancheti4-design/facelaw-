@@ -1,0 +1,15 @@
+[Redacted public copy: the names of private tools are replaced. The hash-locked original's sha256 is 483ad6469a34daa3b03a28e6ddf2b4fed93fcf5c13d988d4c9e1dee942ecf8fb.]
+
+SEALED PIE TEST -- written before any law touched PIE
+data      lights=27.mat (Deng Cai's processed CMU PIE, frontal camera C27, 68 people x 21 flashes, 32x32, uint8),
+          Internet Archive copy of www.cad.zju.edu.cn/home/dengcai/Data/PIE/lights=27.mat (1,303,519 bytes)
+upright   transposed (MATLAB column-major): left-right asymmetry then swings 31.7..90.3 across flashes
+protocol  Ghazi & Ekenel 2016 (arXiv 1606.02894) Table 2: one frontally lit image per person for training, the
+          other 20 for testing (1,360 probes).  Frontal flash = index 10 (the most left-right symmetric for 53 of
+          68 people; found from the images, no identity used)
+OURS      the local law L exactly as frozen on Yale B: synthesis lanes lanes_sector.json + L2_cast, Gaussian 0.75,
+          gradient x16 into 12-bit fields, 8 sectors, circular L1, nearest neighbour.  Nothing tuned on PIE.
+          (the global light law needs >= 3 lit training images with known light directions: not applicable)
+BASELINES same data, same split, my reimplementations with the Yale B parameters: Gradientfaces, Weberfaces,
+          Tan-Triggs.  Published (other crop, 224x224): VGG-Face FC6 93.16, FC7 92.87
+VERDICT   "No. 1 on this test" iff OURS >= every baseline run here AND >= 93.16.  Otherwise not No. 1.

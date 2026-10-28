@@ -1,0 +1,26 @@
+  THE UNLOCK LAW, MULTI-FRAME ENROLMENT -- design on Extended Yale B
+  2026-10-27 15:14:32   pid 32745
+  the lane-authored K = 5 (= 5), , wrong 0 (Python + C)
+  scan frames per person: 5; their light angles (deg) median 11.2, max 127.2
+design probes: 17792; F counted from 235922432 same / 8729111552 other codes  [50s]
+cell (light, evidence) -> threshold, owner accept rate, strangers  [178s]
+   light front, evidence >= 0.0000: NOT NOW (owner below MIN_TAR), owner accepts 0.1%, strangers 38247
+   light front, evidence >= 0.7142: T-norm >= 6.25, owner accepts 49.0%, strangers 38323
+   light oblique, evidence >= 0.0000: NOT NOW (owner below MIN_TAR), owner accepts 0.2%, strangers 37601
+   light oblique, evidence >= 0.7315: NOT NOW (owner below MIN_TAR), owner accepts 14.4%, strangers 37620
+   light side, evidence >= 0.0000: NOT NOW (owner below MIN_TAR), owner accepts 0.0%, strangers 93081
+   light side, evidence >= 0.6414: NOT NOW (owner below MIN_TAR), owner accepts 0.9%, strangers 93176
+authoring:
+  the lane-authored F: 512 entries in 256 lanes; wrong (Python + C) 0; differing 0; lanes checked 256 of 256  
+  the lane-authored ACT: 372 entries in 186 lanes; wrong (Python + C) 0; differing 0; lanes checked 186 of 186  
+DESIGN (Yale B, in-sample), FRONT light, MULTI-FRAME scan
+   photons      owner opens       not now   stranger opens    stranger trials
+   5                   0.0%        100.0%      0 (0.0000%)               9576
+   10                  0.0%        100.0%      0 (0.0000%)               9633
+   20                  0.0%         99.8%      0 (0.0000%)               9595
+   50                  5.3%         79.4%      0 (0.0000%)               9690
+   100                33.0%         16.5%      0 (0.0000%)               9671
+   200                46.8%          1.2%      1 (0.0106%)               9424
+   500                54.3%          0.4%      0 (0.0000%)               9405
+   1000               57.9%          0.2%      1 (0.0104%)               9576
+-> unlock_mf_lanes.json sha256 8508011cb7bbb260b4580bb3f369354378309f43e05b39036ddb358288b3c8e2  [180s]

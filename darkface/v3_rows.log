@@ -1,0 +1,13 @@
+  rows from 250 / 3000 design images  (364s)
+  rows from 500 / 3000 design images  (708s)
+  rows from 750 / 3000 design images  (1077s)
+  rows from 1000 / 3000 design images  (1355s)
+  rows from 1250 / 3000 design images  (1629s)
+  rows from 1500 / 3000 design images  (1894s)
+  rows from 1750 / 3000 design images  (2158s)
+  rows from 2000 / 3000 design images  (2423s)
+  rows from 2250 / 3000 design images  (2708s)
+  rows from 2500 / 3000 design images  (2965s)
+  rows from 2750 / 3000 design images  (3234s)
+  rows from 3000 / 3000 design images  (4228s)
+rows: 659058 (faces 59058 of which label-aligned 24334; negatives 600000 standing for 13349840)  [4231s]

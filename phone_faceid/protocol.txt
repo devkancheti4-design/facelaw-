@@ -1,0 +1,17 @@
+FACE ID HEAD-TO-HEAD PROTOCOL: Apple Face ID (the owner's iPhone) against Face Law (frames from the iQOO Z7 Pro's front
+camera, lit by its own screen, computed on the Mac over USB).  Written 2026-10-28 13:21:43, before the counted trials.
+enrolment   the owner's Face Law enrolment of 2026-10-28 13:20:50 (8 of 8 frames); Face ID as already set up on the iPhone.  No re-enrolment
+            during the test (a re-enrolment ends the test and is reported).
+practice    every trial logged before this protocol's time is practice and is not counted.
+trials      for each: the person (or photo, or screen) tries Face Law on the iQOO, then Face ID on the locked iPhone in the
+            same place and light; the tester records Face ID's result on the iQOO page.
+  owner     10 tries in each of: room light, dim, dark (screen light only), daylight, another day = 50
+  strangers every consenting person, 5 tries each (no image kept; only the results)
+  photo     10 tries with a printed photo of the owner; screen: 10 tries with the owner's photo on another phone's screen
+Face Law    bars: per-law best Yale-stranger score + margin (full-light 0.348, dark 0.713: the smallest margins at which no
+            held-out new person opened any of 37 owners' locks); open if either law clears its bar; liveness (v1): screen
+            share >= 0.15, lit points >= 150, 3D >= 0.12, movement <= 1 px.  Nothing is changed during the test.
+answers     OPEN; NOT YOU (a refusal); NOT NOW (liveness or no face: also a refusal) -- every answer is reported.
+claims      mine, written now: Face ID opens the owner in every light, never a stranger, photo or screen; Face Law opens
+            no stranger, and refuses the photo and the screen (liveness), but opens the owner less: most often in room
+            light and the dark, least in daylight (the screen's flash is drowned) and on another day.

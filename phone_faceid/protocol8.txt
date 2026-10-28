@@ -1,0 +1,9 @@
+FACE ID HEAD-TO-HEAD, PROTOCOL 8 (Face Law phone pipeline v6.1).  Written 2026-10-28 14:09:02, before the v6.1 enrolment.
+the v6 (ring) attempts: 9 (OPEN 0, NOT YOU 9, NOT NOW 0), closed as they stand.  Evidence across versions: steady
+enrolment in the unlock position opened with margins +1.5 to +3.6; the moving-head ring views came close but below (best
+-0.23); a second identity pass in the check refused three scan matches (-0.01, -0.23, -2.01).
+  v6.1      enrolment: 2 steady rounds (6 frames each) in the unlock position, then the ring (up to 30 s); at most 10 views.
+            The scan runs up to 4 s.  The check (white, black, top, bottom x 350 ms) proves the SAME live face in the SAME
+            place (eyes within a quarter of the eye distance of the matching frame), not a second identity pass.
+            Bars (full-light 0.402, dark 1.086, 10-map calibration) and liveness thresholds unchanged.
+trials      counted per attempt, as protocol 4.

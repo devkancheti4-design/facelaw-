@@ -1,0 +1,4 @@
+PROTOCOL 12, ADDENDUM 2 (the page keeps the screen on).  Written %Y-%m-%d %H:%M:%S.  The lock is unchanged.
+the change  the Face ID test page asks the browser for a screen wake lock while it is open and visible (navigator.wakeLock),
+            so the phone does not sleep in the middle of a run; no phone setting is changed.
+files       index.html 4496cb44d752c1b6

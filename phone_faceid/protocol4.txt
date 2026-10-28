@@ -1,0 +1,11 @@
+FACE ID HEAD-TO-HEAD, PROTOCOL 4 (Face Law phone pipeline v5, FAST).  Written 2026-10-28 13:53:01, before the v5 enrolment.
+the v4 block (protocol3.txt, sha256 e4f6b730) is closed as it stands: 19 owner attempts: OPEN 8, NOT YOU 4, NOT NOW 7
+(only the 'straight' angle was enrolled; most refusals were NOT NOW for movement over the 4-second windows).
+  v5        the owner: "recursive but fast".  Enrolment: 3 s of frames while the phone moves in a small circle -> 5 maps per
+            law.  A try: the screen stays white; frame after frame (the face tracked between frames), each read against
+            every map as it arrives, for up to 3 s; on the first match, a 1.5 s flash check (black, white, top, bottom x2)
+            at the same face: OPEN only if live and the face there still matches; no match in 3 s -> NOT YOU.
+  bars      unchanged from protocol 3: full-light 0.402, dark 1.086 (10-map leave-one-person-out calibration); liveness unchanged.
+trials      counted per attempt: owner 10 each in room light, dim, dark, daylight, another day; strangers 5 attempts each;
+            printed photo 10; phone screen 10; Face ID once per attempt.
+claims      mine: v5 opens the owner in room light in most attempts within about 1 s; no stranger, photo or screen opens it.

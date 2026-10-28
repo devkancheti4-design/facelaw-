@@ -1,0 +1,174 @@
+{
+ "photos": 2354,
+ "android_median_ms": 29.600000008940697,
+ "systems": {
+  "Android": {
+   "all": {
+    "n": 2354,
+    "face": 1869,
+    "right": 1640,
+    "near": 210,
+    "gross": 19,
+    "none": 485
+   },
+   "light within 25 deg": {
+    "n": 626,
+    "face": 594,
+    "right": 594,
+    "near": 0,
+    "gross": 0,
+    "none": 32
+   },
+   "25-50 deg": {
+    "n": 444,
+    "face": 410,
+    "right": 403,
+    "near": 7,
+    "gross": 0,
+    "none": 34
+   },
+   "beyond 77 deg (harsh)": {
+    "n": 697,
+    "face": 382,
+    "right": 282,
+    "near": 83,
+    "gross": 17,
+    "none": 315
+   },
+   "50-77 deg": {
+    "n": 587,
+    "face": 483,
+    "right": 361,
+    "near": 120,
+    "gross": 2,
+    "none": 104
+   }
+  },
+  "Face Law eye finder (v8)": {
+   "all": {
+    "n": 2354,
+    "face": 1378,
+    "right": 1282,
+    "near": 81,
+    "gross": 104,
+    "none": 887
+   },
+   "light within 25 deg": {
+    "n": 626,
+    "face": 604,
+    "right": 592,
+    "near": 11,
+    "gross": 7,
+    "none": 16
+   },
+   "25-50 deg": {
+    "n": 444,
+    "face": 361,
+    "right": 345,
+    "near": 13,
+    "gross": 16,
+    "none": 70
+   },
+   "beyond 77 deg (harsh)": {
+    "n": 697,
+    "face": 70,
+    "right": 65,
+    "near": 0,
+    "gross": 53,
+    "none": 579
+   },
+   "50-77 deg": {
+    "n": 587,
+    "face": 343,
+    "right": 280,
+    "near": 57,
+    "gross": 28,
+    "none": 222
+   }
+  },
+  "Face Law v9 (eye check, held out)": {
+   "all": {
+    "n": 2354,
+    "face": 1378,
+    "right": 1181,
+    "near": 35,
+    "gross": 0,
+    "none": 1138
+   },
+   "light within 25 deg": {
+    "n": 626,
+    "face": 604,
+    "right": 602,
+    "near": 1,
+    "gross": 0,
+    "none": 23
+   },
+   "25-50 deg": {
+    "n": 444,
+    "face": 361,
+    "right": 340,
+    "near": 8,
+    "gross": 0,
+    "none": 96
+   },
+   "beyond 77 deg (harsh)": {
+    "n": 697,
+    "face": 70,
+    "right": 44,
+    "near": 0,
+    "gross": 0,
+    "none": 653
+   },
+   "50-77 deg": {
+    "n": 587,
+    "face": 343,
+    "right": 195,
+    "near": 26,
+    "gross": 0,
+    "none": 366
+   }
+  },
+  "Face Law v9 (deployed law)": {
+   "all": {
+    "n": 2354,
+    "face": 1378,
+    "right": 1206,
+    "near": 34,
+    "gross": 0,
+    "none": 1114
+   },
+   "light within 25 deg": {
+    "n": 626,
+    "face": 604,
+    "right": 602,
+    "near": 1,
+    "gross": 0,
+    "none": 23
+   },
+   "25-50 deg": {
+    "n": 444,
+    "face": 361,
+    "right": 345,
+    "near": 6,
+    "gross": 0,
+    "none": 93
+   },
+   "beyond 77 deg (harsh)": {
+    "n": 697,
+    "face": 70,
+    "right": 45,
+    "near": 0,
+    "gross": 0,
+    "none": 652
+   },
+   "50-77 deg": {
+    "n": 587,
+    "face": 343,
+    "right": 214,
+    "near": 27,
+    "gross": 0,
+    "none": 346
+   }
+  }
+ }
+}

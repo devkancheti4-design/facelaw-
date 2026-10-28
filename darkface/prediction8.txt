@@ -1,0 +1,4 @@
+MY PREDICTION, SPEC 50 (sealed 2026-10-27, before any SPEC 50 law is built)
+sealed AP@0.5 about 32% (range 26-40%): the recall laws (3b, 8, 9) are mechanical and should lift the ceiling to
+~80%, but faces under 8 px (41% of faces) hold ~30 pixels each and stay poorly ranked; precision >= 59% held to
+85% recall is not what the measured top-N curve supports.  NOT above 50%.

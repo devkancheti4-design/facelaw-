@@ -1,0 +1,24 @@
+[Redacted public copy: the names of private tools are replaced. The hash-locked original's sha256 is 233518f2e09363985dcdece307ba4ac76dc93ffc7b792e4ae45d00efb16c08c4.]
+
+SEALED DARK PIE UNLOCK TEST, v4  (written 2026-10-27 15:42:10, before v4 reads any PIE image)
+data      CMU PIE lights=27.mat, 68 people x 21 flashes, 32x32. PIE's FOURTH use (dark identification; unlock v3:
+          owner 85%, strangers 2 of 1,109,760; the multi-frame scan was designed on Yale and never sealed);
+          v4 was designed on Yale B only
+law       v4 = sealed v3 + measured light mismatch to the scan (D1 and ACT4 rebuilt from the authored lanes); every
+          OPEN of v3 is kept, so strangers who open are v3's by construction
+enrol     flash 10 per person (the scan); probes: the other 20 flashes, N = 5..1000 photons/pixel (Law 1, auto-
+          exposure), +-1 px jitter, 3 draws, seed 1112026
+metric    per photon level, front light and all light: owner OPEN / NOT NOW / NOT YOU %, strangers who OPEN;
+          run ONCE; reported whatever it is
+claims    unlock_v4_claim_user.txt and unlock_v4_claim_mine.txt, hashes below
+sha256 unlock_v4.py cd74addb456839a0bb642d9bd9de36f7d74699cc40c64841c1c30d429ae3d2d9
+sha256 unlock_law.py fb64816d1ed14850f1ce37e00b71331838bb6e60e72d267decc0ca973867a33b
+sha256 dark_law.py 500f109a77536a40e84ebb2fcc612e98aef72aabb48c63210ea3208fe1176c2a
+sha256 yale_gate.py c6c137c7de40561c2eecd5aa901b83721eb3e482b76690326d470b9ac9971c3c
+sha256 lanes_sector.json d168829240de9bdb21571c96d3e106f33fb0f2c1453fe0c0ff561448eca47713
+sha256 lane_cast.json b19388c8693c73e73c01d1010389877fc71101d214eea809b6698fd5dc76438b
+sha256 unlock_lanes.json 6ca81b70b95e1ffe6fcb67c49173e39a792db0bdc6b7093a4e08b099ed6ece9a
+sha256 unlock_v4_lanes.json 139909a076453bbec6bc72a077037ec51559b25c2149baf5d41c2f19c1724bc7
+sha256 data/pie/lights=27.mat 91ac38912fc93ccc52cf47d93185f6d9e9c532583df3d60d4a605139eaa23f66
+sha256 unlock_v4_claim_user.txt e6b8aeb9788e1300b218817d26b66176e92e2e17b00b0d0248e770d2a9d91028
+sha256 unlock_v4_claim_mine.txt 10edeece16415923e066f2178cb6de4932c52854ddb5fbf4f73e51e37fe1073f

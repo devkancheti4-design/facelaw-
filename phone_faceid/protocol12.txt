@@ -1,0 +1,29 @@
+FACE ID HEAD-TO-HEAD, PROTOCOL 12 (Face Law phone pipeline v9: ALL LAWS -- the eye-check law in front).  Written 2026-10-28 19:25:40 (rewritten before any trial: the scoreboard counts from the new rule).
+the v8 block (protocol 11) is closed as it stands: since the enrolment of 2026-10-28 18:08:08, 48 attempts {'OPEN': 20, 'recognised, check refused': 15, 'NOT NOW': 1, 'NOT YOU': 12}.
+why v9      v8's bars against REAL photographs of strangers (6 enrolled owners, every other person's 64 Extended Yale B
+            photographs, as they are and printed): 74 of 17,492 frames with eyes cleared a bar, up to 19.21 above it.  The
+            12 hits of one owner, replayed exactly: all 12 were crops at WRONG eyes (the pair 10-26 px apart where the true
+            eyes are 94-102 px apart; off by 12-128 px), shadows taken for eyes under hard light; a blown-up patch.
+the law     THE EYE-CHECK LAW: are the eye finder's two eyes this face's eyes?  Appearance: per class (right, wrong), point of
+            the 48 x 42 crop and map bin; geometry: the pair against the face detector's box (spacing, centre left-right and
+            up-down, tilt), 8 bins each; round(2 log2((n + 1) / (N + 8))), counted on the 37 people's real photographs (as
+            they are, printed) and renders in the phone's light; right = both eyes within 0.12 eye distances,
+            wrong = gross misses (an eye more than 0.3 off, or the spacing off by 1.33x).  Two bars
+            (appearance 807, geometry 4): held out (halves by person), every gross miss failed one: 0 of 36,467; the
+            finder's right pairs kept 85.1%.  Authored as integer lanes by program synthesis: 42,496
+            entries in 21,248 lanes, 0 wrong, 0 differing; the server rebuilds the table from the lanes and checks it.
+the lock    each frame: the eye finder's pairs from the tracked box and the detector's box (x1, x0.85, x1.2); the eye-check law
+            keeps the best pair or drops the frame; then both identity laws against EVERY mapped angle.  Each angle's bar =
+            the best of the 16213 rendered stranger tries the eye-check law passes + the margin measured the same way (96:
+            0.625, 48: 1.876; leave-one-person-out, at all 35 angles at once).  ENROL / ADD / CLOSE as v8.  CHECK
+            unchanged (v7.0's flash check): NOT PHOTO-PROOF.  The owner's enrolment carries over: its maps stay, its bars are
+            redone under this rule at start.
+the bet     simulation: owner frame-tries at the mapped angles 77-82% (v8: 89-95%).  Real photographs of
+            strangers against v9's bars (each person checked by the eye-check half-law that never counted them): 3 of 14,420
+            checked frames cleared a bar, all one photograph (yaleB09, light 50 deg side, 40 deg below), 0.14-0.22 above,
+            eyes right (4-5% off): a hard-light near miss the rendered stranger set never covered -- next (v9.1): real
+            photographs in the stranger set.  End to end on renders: owner 12/12 at 3 mapped angles, 19/24 at 5-10 deg,
+            0/10 beyond 20 deg; an angle refused 0/10 opened 9/9 after it was added with the password; strangers 0/252.
+trials      counted per attempt from this protocol's start; no image is written to disk.
+files       server.py ad623a72bcc101d6  index.html 626386d23026883d  eyecheck_design.json 3d66530dc1a35bd0  lanes_eyecheck.json 04ea996617327699
+            mapped_match9.json a7774292c7a01456  pose_bundle_gate.npz d37e6c50fbcfbbdb  pose_bundle.npz 97f0eddee4f4f5e3

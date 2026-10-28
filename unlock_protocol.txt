@@ -1,0 +1,24 @@
+[Redacted public copy: the names of private tools are replaced. The hash-locked original's sha256 is 14323f0d64a50d105c3e962bb4fdcdcbe5d67995566e15daec8ac4ff2f2a08dd.]
+
+SEALED DARK PIE UNLOCK TEST  (written 2026-10-27 15:05:39, before the unlock law reads any PIE image)
+data      CMU PIE lights=27.mat: 68 people x 21 flashes, 32x32 (upright = transposed). PIE's SECOND use: the first was
+          the sealed dark IDENTIFICATION test (pie_dark_protocol.txt); the unlock law was designed on Yale B only
+enrol     flash 10 (frontal, clean) per person -- the scan
+owners    every person in turn; cohort = the next 33 people (fixed strangers inside the law); impostors = the other 34
+probes    the other 20 flashes, each thinned to N = 5, 10, 20, 50, 100, 200, 500, 1000 photons/pixel through Law 1
+          (Poisson, read noise, gain lowered by auto-exposure so no pixel clips, black, rounding), +-1 px placement
+          jitter, 3 draws, seed 27102026 -> 32,640 dark probes, 1,109,760 stranger tries
+law       unlock_lanes.json exactly: F and ACT rebuilt from the authored lanes; measured noise; placement search
+          +-1 px; T-norm margin against the fixed cohort; state = measured light class x evidence band x margin
+metric    per photon level, all light and front light (measured class): owner opens (ACCEPT) %, owner told 'not
+          now' %, stranger opens (count of ACCEPT over stranger trials); run ONCE; reported whatever it is
+claims    unlock_claim_user.txt and unlock_claim_mine.txt, hashes below
+sha256 unlock_law.py fb64816d1ed14850f1ce37e00b71331838bb6e60e72d267decc0ca973867a33b
+sha256 dark_law.py 500f109a77536a40e84ebb2fcc612e98aef72aabb48c63210ea3208fe1176c2a
+sha256 yale_gate.py c6c137c7de40561c2eecd5aa901b83721eb3e482b76690326d470b9ac9971c3c
+sha256 lanes_sector.json d168829240de9bdb21571c96d3e106f33fb0f2c1453fe0c0ff561448eca47713
+sha256 lane_cast.json b19388c8693c73e73c01d1010389877fc71101d214eea809b6698fd5dc76438b
+sha256 unlock_lanes.json 6ca81b70b95e1ffe6fcb67c49173e39a792db0bdc6b7093a4e08b099ed6ece9a
+sha256 data/pie/lights=27.mat 91ac38912fc93ccc52cf47d93185f6d9e9c532583df3d60d4a605139eaa23f66
+sha256 unlock_claim_user.txt 3355c2c3c582ed25a3fb9c0a71d10efd07187c34cdb4904896e8748240e84903
+sha256 unlock_claim_mine.txt af6b54e9ddfd0cd2b41eada0002d185e571557aca0962ed8145dce3713df21ae

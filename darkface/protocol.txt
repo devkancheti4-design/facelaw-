@@ -1,0 +1,22 @@
+[Redacted public copy: the names of private tools are replaced. The hash-locked original's sha256 is 2b39ce3663694c065c0055f19ef8ed939696115be8d6fc9ceac4200dc05db780.]
+
+DARK FACE SEALED TEST PROTOCOL  (written 2026-10-27 01:34:01, before any test image is read)
+data: DarkFace_Train_2021.zip, 4,378,261,971 bytes, official PKU link (Google Drive id 10W3TDvEAlZfEt88hMxoEuRULr42bIV7s); 6,000 labelled night images
+split: seed 20261026 -> 1,000 test images (8,143 faces), 300 design-validation, 4,700 design; split.json below
+design: every count, moment, threshold and choice made on the 4,700 design and 300 design-validation images only
+law: shared-covariance; FACE 10 in a 16 window; CELL 2; hard-negative rounds 0 (hard share n); prior weight 8.0; minsig 10
+runtime: the tables rebuilt from the authored lanes ONLY (lanes.json: every lane proven on all its inputs, Python and compiled C; 0 wrong; 0 entries differing from the design)
+metric: VOC all-point average precision at IoU 0.5 over all 1,000 test images and ALL labelled faces (none ignored); detections = the law's boxes after NMS 0.3; run ONCE; reported whatever it is
+reference: fine-tuned DSFD 46.0 mAP (HLA-Face, CVPR 2021, Table 1); NOTE the published protocol differs (their evaluation split), so the comparison is indicative, not identical
+sealed predictions: user_claim.txt (AP > 50%) and prediction.txt (mine, about 10%), hashes below
+sha256 darkface_law.py 9c074237a978e8d920bc7dd5849650caad9690dbd65ada5ba1d02bf44b8cb0b8
+sha256 darkface_run.py d54da98bac3628cfdc65772a8ffb0da3ddfdf8554a2b361b53442aad49dd29cf
+sha256 the private authoring script ed1e5b429b95fd40187ec104922b0275fd1213ae81f075f54f7f2036980a6cc8
+sha256 yale_gate.py c6c137c7de40561c2eecd5aa901b83721eb3e482b76690326d470b9ac9971c3c
+sha256 lanes_sector.json d168829240de9bdb21571c96d3e106f33fb0f2c1453fe0c0ff561448eca47713
+sha256 lane_cast.json b19388c8693c73e73c01d1010389877fc71101d214eea809b6698fd5dc76438b
+sha256 darkface/split.json a5881a2e80e2d6c4bcd040cdb160721c3a315e8a50fcd724a1b648d6909009b8
+sha256 darkface/design.json d81585cf3a8519d1df10fae57721ccb1c798310df6350a08df602f5f2e1c0458
+sha256 darkface/lanes.json 6f98fc4919548a483ef991abde601d82dff8422d3a91a735c223ac35d2176b3a
+sha256 darkface/prediction.txt 98cef985d9b9ced05910c12c99975d63aec3e6ba5fdd15545f9ab277f085e09a
+sha256 darkface/user_claim.txt a55ca65fe099247a53a6df2eb649d600c5cd6baac92b9e10c521ab75b070a675

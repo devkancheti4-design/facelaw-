@@ -1,0 +1,34 @@
+SEALED CMU PIE HEAD-TO-HEAD  (written 2026-10-28 10:04:00, before any PIE image is read by these methods)
+data      CMU PIE lights=27.mat: 68 people x 21 flashes, 32 x 32, warped onto the law's canonical eyes at 48 x 42
+          (personal.pie_crops: the dataset's eye alignment, not the eye law: this tests the FACE CODES)
+use       FACE LAW v2 was designed on Extended Yale B only and has never been run on PIE; PIE was used before by
+          v1's tests (sealed identification, dark identification, the unlock tests) and as v1's fresh-stranger check
+methods   FACE LAW v2 (the sealed law: lanes_v2.json), FACE LAW v1 (as shipped: unlock_lanes.json's F), Gradientfaces,
+          Weberfaces, Tan-Triggs, LBP, LTP, LGBPHS, HOG, Eigenfaces, Eigenfaces-3, Fisherfaces, all at 48 x 42 (PIE is
+          32 x 32: a 96 x 84 copy would only be interpolation); the learned ones trained on Extended Yale B (all 37
+          people, automatic-eye crops), never on PIE; every method gets the best of the 9 placements (+-1 px)
+enrol     flash 10 (frontal) of each person; tries: the other 20 flashes, each at N = 20 and N = 1000 photons per
+          pixel (Law 1 with auto-exposure), one draw, seed 20261028
+metric    owner accepted %% when 0 / 1 in 1,000 strangers get in, raw score (one threshold) and T-norm against the
+          other half of the PIE people (even / odd), all light and the front-light class; run ONCE; reported as is
+prediction (mine, written before the run): at N = 1000 most methods sit near their ceiling (PIE saturated an earlier
+          identification test); by the raw score at 1 in 1,000, FACE LAW v2 is in the top three but not certainly
+          first; at N = 20 the ratio codes (FACE LAW v2, Weberfaces, LTP) lead the gradient and subspace methods
+sha256 h2h_all.py bbf61b766f8f089eb76d9cdcb35369e7479b92c1dc4a1af93982cbbb7f5af454
+sha256 classics.py 90c35b9a8bd03ff70e477cc8b5083ebd80756032c4b225eb271af352a9b29f35
+sha256 yale_baselines.py 4c328a8aa329021a5d17f27140712a47dce3555f6b4690e827f38feb40202a2d
+sha256 v2ref.py 21f673960e0bccd4bda5c7408842a7e2784ad5f21c6613133adad37a130c216a
+sha256 v2ops.py b59c077551fb3f679e50370a5f384a6693b15c673cdf272f96e26d3cd80df68a
+sha256 v2law.py 0fd0795ca2554529bdd735a1c0f5d2073f59183697527305f3ff0fce94003d9e
+sha256 v2_count.py a3da30bc4191253165237ffe140e877a85e279b003f87627e73da65096b29589
+sha256 personal.py eecfa49cb44726d32e3bb461a3b62b0ff4defd22350c008e7b8f3f5b20588af5
+sha256 phone_eyes.py 77d42f1b17b9d1cab85f74c05a08e57b43f6aae06d3615aa7417438e5bd014e2
+sha256 unlock_law.py fb64816d1ed14850f1ce37e00b71331838bb6e60e72d267decc0ca973867a33b
+sha256 dark_law.py 500f109a77536a40e84ebb2fcc612e98aef72aabb48c63210ea3208fe1176c2a
+sha256 v2_design.json 8a56fd196dde1f700256013c3018cbd7b9cb7e69a59c56a8c1431def129a2369
+sha256 lanes_v2.json e9f2f78601c05e3cc65441e7ec9f6bc67bbae6539c53fb07777cf58384683ae6
+sha256 v2ops_tables.json a9a00bfb4a61c8c2ac13ea313c094ecd35f579ca3fd98bb5c1a84aa015969a5d
+sha256 unlock_lanes.json 6ca81b70b95e1ffe6fcb67c49173e39a792db0bdc6b7093a4e08b099ed6ece9a
+sha256 lanes_sector.json d168829240de9bdb21571c96d3e106f33fb0f2c1453fe0c0ff561448eca47713
+sha256 lane_cast.json b19388c8693c73e73c01d1010389877fc71101d214eea809b6698fd5dc76438b
+sha256 data/pie/lights=27.mat 91ac38912fc93ccc52cf47d93185f6d9e9c532583df3d60d4a605139eaa23f66

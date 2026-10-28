@@ -1,0 +1,209 @@
+[
+ {
+  "name": "L1_photon",
+  "domain": [
+   0,
+   1023
+  ],
+  "inputs": 1024,
+  "eval_wrong": 0,
+  "c_wrong": 0,
+  "expr": "(x - 64)"
+ },
+ {
+  "name": "L1_sat",
+  "domain": [
+   0,
+   1023
+  ],
+  "inputs": 1024,
+  "eval_wrong": 0,
+  "c_wrong": 0,
+  "expr": "((x + 1) >> 10)"
+ },
+ {
+  "name": "L2_census",
+  "domain": [
+   0,
+   65535
+  ],
+  "inputs": 65536,
+  "eval_wrong": 0,
+  "c_wrong": 0,
+  "expr": "(((255 - x) >> 8) - (((x >> 8) - x) >> 8))"
+ },
+ {
+  "name": "L4_rigid",
+  "domain": [
+   0,
+   31
+  ],
+  "inputs": 32,
+  "eval_wrong": 0,
+  "c_wrong": 0,
+  "expr": "((x - x) - ((x - 18) >> 31))"
+ },
+ {
+  "name": "L5_accept",
+  "domain": [
+   -1024,
+   1023
+  ],
+  "inputs": 2048,
+  "eval_wrong": 0,
+  "c_wrong": 0,
+  "expr": "((x - x) - ((x - 38) >> 31))"
+ },
+ {
+  "name": "L6_dark",
+  "domain": [
+   0,
+   4095
+  ],
+  "inputs": 4096,
+  "eval_wrong": 0,
+  "c_wrong": 0,
+  "expr": "((x - x) - ((x - 207) >> 31))"
+ },
+ {
+  "name": "L5_open",
+  "domain": [
+   0,
+   4095
+  ],
+  "inputs": 4096,
+  "eval_wrong": 0,
+  "c_wrong": 0,
+  "expr": "((x - x) - ((x - 256) >> 31))"
+ },
+ {
+  "name": "OUT_any3",
+  "domain": [
+   0,
+   31
+  ],
+  "inputs": 32,
+  "eval_wrong": 0,
+  "c_wrong": 0,
+  "expr": "(1 & ((-(x & 7)) >> 31))"
+ },
+ {
+  "name": "OUT_both",
+  "domain": [
+   0,
+   31
+  ],
+  "inputs": 32,
+  "eval_wrong": 0,
+  "c_wrong": 0,
+  "expr": "((x & (x >> 1)) >> 3)"
+ },
+ {
+  "name": "L5_conf",
+  "domain": [
+   -2048,
+   2047
+  ],
+  "inputs": 4096,
+  "eval_wrong": 0,
+  "c_wrong": 0,
+  "expr": "(((x - 74) >> 31) - (x - (x + 1)))"
+ },
+ {
+  "name": "OUT_abst_x",
+  "domain": [
+   0,
+   15
+  ],
+  "inputs": 16,
+  "eval_wrong": 0,
+  "c_wrong": 0,
+  "expr": "(4 ^ (x & 7))"
+ },
+ {
+  "name": "OUT_abst",
+  "domain": [
+   0,
+   15
+  ],
+  "inputs": 16,
+  "eval_wrong": 0,
+  "c_wrong": 0,
+  "expr": "(1 & ((-(4 ^ ((x) & 7))) >> 31))"
+ },
+ {
+  "curve": "gamma 1/2.2",
+  "k": 0.25,
+  "lost": 0.005195,
+  "nontie": 0
+ },
+ {
+  "curve": "gamma 1/2.2",
+  "k": 1.0,
+  "lost": 0.00276,
+  "nontie": 0
+ },
+ {
+  "curve": "gamma 1/2.2",
+  "k": 3.0,
+  "lost": 0.2234325,
+  "nontie": 0
+ },
+ {
+  "curve": "S-curve",
+  "k": 0.25,
+  "lost": 0.017125,
+  "nontie": 0
+ },
+ {
+  "curve": "S-curve",
+  "k": 1.0,
+  "lost": 0.008505,
+  "nontie": 0
+ },
+ {
+  "curve": "S-curve",
+  "k": 3.0,
+  "lost": 0.2424475,
+  "nontie": 0
+ },
+ {
+  "curve": "random monotone",
+  "k": 0.25,
+  "lost": 0.0351475,
+  "nontie": 0
+ },
+ {
+  "curve": "random monotone",
+  "k": 1.0,
+  "lost": 0.0063825,
+  "nontie": 0
+ },
+ {
+  "curve": "random monotone",
+  "k": 3.0,
+  "lost": 0.22309,
+  "nontie": 0
+ },
+ {
+  "curve": "phone-like (log + shoulder)",
+  "k": 0.25,
+  "lost": 0.00437,
+  "nontie": 0
+ },
+ {
+  "curve": "phone-like (log + shoulder)",
+  "k": 1.0,
+  "lost": 0.003805,
+  "nontie": 0
+ },
+ {
+  "curve": "phone-like (log + shoulder)",
+  "k": 3.0,
+  "lost": 0.2242875,
+  "nontie": 0
+ },
+ {
+  "decision_wrong": 0
+ }
+]

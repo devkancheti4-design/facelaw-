@@ -1,0 +1,32 @@
+{
+ "margin96": 0.5356823811994323,
+ "margin48": 1.5308442125783692,
+ "rule": "MAPPED: the owner's views at the angles the owner chooses (at enrolment, or added with the password after a failed try); a try is compared with every view, both laws, over the points the view's angle and the try's read angle both show (the view's own points when they share less than half); each view's bar = the best bundle try compared with it + the margin of its law; OPEN if either law clears any view's bar",
+ "choices": {
+  "1 angle: straight": {
+   "at_the_angles": 0.8918918918918919,
+   "within_10_deg": 0.21762048192771086,
+   "further_away": 0.0033149171270718232
+  },
+  "3 angles: straight, left 20, right 20": {
+   "at_the_angles": 0.9504504504504504,
+   "within_10_deg": 0.21208053691275167,
+   "further_away": 0.006097560975609756
+  },
+  "5 angles: + up 10, down 10": {
+   "at_the_angles": 0.9405405405405406,
+   "within_10_deg": 0.2606217616580311,
+   "further_away": 0.0
+  },
+  "9 angles: + the four 20/10 corners": {
+   "at_the_angles": 0.952416918429003,
+   "within_10_deg": 0.3205906148867314,
+   "further_away": 0.0
+  },
+  "all 35 angles": {
+   "at_the_angles": 0.967663702506063,
+   "within_10_deg": 0.967663702506063,
+   "further_away": null
+  }
+ }
+}

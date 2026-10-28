@@ -1,0 +1,9 @@
+FACE ID HEAD-TO-HEAD, PROTOCOL 6 (Face Law phone pipeline v5.2).  Written 2026-10-28 14:00:24, before the v5.2 enrolment.
+the v5.1 block (protocol5.txt, sha256 7663711e) is closed as it stands: 7 owner attempts after its enrolment: OPEN 1,
+NOT YOU 1, NOT NOW 5.  The face matched in the scan in 6 of them (most on the first frame); the live check refused all
+but one: 3 for movement during its 1.5 s, 2 as 'flat' (the owner's real face: 3D 0.119 and 0.089 against 0.12).  Cause, mine:
+check flashes of 250 ms let a frame catch the previous flash.
+  v5.2      enrolment: the 3 natural-position rounds, then a slow head turn left to right (up to 5 more views; at most 9);
+            the check: white, black, top, bottom, 350 ms each (1.4 s).  Bars and liveness thresholds UNCHANGED
+            (full-light 0.402, dark 1.086; screen share 0.15, lit points 150, 3D 0.12, movement < 3 px after lining up).
+trials      counted per attempt, as protocol 4.

@@ -1,0 +1,13 @@
+[Redacted public copy: the names of private tools are replaced. The hash-locked original's sha256 is d74e2eaa4e93871364f93d42bbf2a37aeea41c705a249922f92d1ab5bf23a486.]
+
+SEALED DARK PIE TEST -- written after the dark law was frozen on Yale B and authored as integer lanes, before it saw PIE
+data      lights=27.mat (CMU PIE, frontal camera, 68 people x 21 flashes, 32x32), upright = transposed
+enrol     flash 10 (frontal, clean) per person -- the one handmade example
+probes    the other 20 flashes, each thinned to Nbar = 1, 2, 5, 10 photons/pixel through Law 1 (Poisson photons,
+          read noise 1.5 e-, gain 2.7 DN/e-, black 64, rounding), 3 draws each, seed 31337 -> 16,320 dark probes
+OURS      the dark law exactly as frozen: dark_lanes.json (48 synthesis lanes + gate), Law 1 significance, scales
+          0.75/1.5/3 on strides 1/2/4.  Forced choice = best score.  The gate may answer 'too dark to tell'.
+BASELINES the same noisy images, the frozen Yale parameters: Gradientfaces, Weberfaces, Tan-Triggs, and the clean
+          local law (sectors, circular L1)
+VERDICT   "No. 1 in the dark" iff OURS forced-choice >= every baseline at ALL four photon levels.
+          "Never guesses" iff the error among the answers the gate allows is <= 1%.

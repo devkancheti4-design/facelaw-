@@ -1,0 +1,8 @@
+ERRATUM to protocol_am.txt (sha256 23159dff...), written 2026-10-27 after the sealed AM test.  The tested code and every
+hashed file are unchanged; two lines of the protocol's prose were stale:
+1. "AM = 288-state law ... authored as integer lanes": WRONG.  AM's cut points and 288-state table were MEASURED on design
+   [3000:3800] and held in the user's recall jar (am.jar); the lane-authored ONE number, the cancellation weight
+   w = 512 / 4096 (lane cancel_w4096).  The tested MODE (cancel) does not read the table at all.
+2. "MODE: cancel (chosen on design-validation ...)": WRONG.  The mode was fixed at the user's request; design-validation
+   was not run (as the protocol's next line states).
+Result: test_am_result.json sha256 89d27513..., AP@0.5 = 23.54%.

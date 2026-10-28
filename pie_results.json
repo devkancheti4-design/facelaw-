@@ -1,0 +1,8 @@
+{
+ "OURS (synthesis local law)": 100.0,
+ "Gradientfaces (my run)": 100.0,
+ "Weberfaces (my run)": 100.0,
+ "Tan-Triggs (my run)": 100.0,
+ "VGG-Face FC6 (published)": 93.16,
+ "VGG-Face FC7 (published)": 92.87
+}

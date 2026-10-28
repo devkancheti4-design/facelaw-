@@ -1,0 +1,6 @@
+SPEC 70 ERRATUM  (written 2026-10-28 11:28:32, before any tree of LAW 7d was grown)
+the fit on all 625,396 rows reached 26 GB in scikit-learn (float64 copies of the rows, again for its early-stopping
+split) on this 24 GB machine with 7 GB of disk free, and was stopped while binning: no tree grown, nothing saved.
+LAW 7d is fitted on every face row (63,146) and a 42% Bernoulli sample of the non-face rows (seed 70); the class
+weights are rebalanced exactly as LAW 7c's (non-faces scaled to the faces' total), so the loss is the same in
+expectation; everything else in spec70.txt (sha256 7d6acfd1ecc35dcb92edd6ef4b87709a92f7dc7793babab158df7c1c169b2da6) is unchanged.

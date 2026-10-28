@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Face Lock</title>
+<style>
+  :root {
+    --ground: #0f1113; --surface: #171a1d; --raise: #20242a; --line: #2b3036;
+    --ink: #eceff1; --muted: #9aa4ae; --faint: #6b747d;
+    --light: #fff3dc; --light-ink: #1c1608; --light-glow: rgba(255, 236, 200, .18);
+    --open: #4cc98f; --wait: #f0b54a; --deny: #ef6b6b;
+    --round: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--ground); color: var(--ink); font: 16px/1.5 var(--sans); }
+  body { min-height: 100vh; }
+  .wrap { max-width: 560px; margin: 0 auto; padding: 28px 16px 48px; display: grid; gap: 20px; }
+  header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+  h1 { font: 600 28px/1.1 var(--round); letter-spacing: -.01em; margin: 0; text-wrap: balance; }
+  .lede { margin: 8px 0 0; color: var(--muted); font-size: 15px; text-wrap: balance; }
+  .prize { margin: 10px 0 0; font: 600 17px/1.3 var(--round); color: var(--light); }
+  .count { margin: 6px 0 0; font: 13px/1.4 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+  .chip { font: 600 12px/1 var(--sans); letter-spacing: .06em; text-transform: uppercase; padding: 7px 10px; border-radius: 999px;
+          border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+  .chip[data-s="locked"] { color: var(--wait); border-color: color-mix(in srgb, var(--wait) 45%, transparent); }
+  .chip[data-s="open"] { color: var(--open); border-color: color-mix(in srgb, var(--open) 45%, transparent); }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: grid; gap: 14px; }
+  h2 { font: 600 18px/1.2 var(--round); margin: 0; }
+  .steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; color: var(--muted); font-size: 14px; }
+  .steps b { color: var(--ink); font-weight: 600; }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  button, .file { font: 600 15px/1 var(--sans); border-radius: 10px; padding: 12px 16px; cursor: pointer; border: 1px solid var(--line);
+                  background: var(--raise); color: var(--ink); }
+  button:hover, .file:hover { border-color: #3a4048; }
+  button:focus-visible, .file:focus-within, textarea:focus-visible, input:focus-visible { outline: 2px solid var(--light); outline-offset: 2px; }
+  button.primary { background: var(--light); color: var(--light-ink); border-color: var(--light); box-shadow: 0 0 0 6px var(--light-glow); }
+  button:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; }
+  .file input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+  .file { position: relative; display: inline-flex; }
+  .ghost { background: transparent; border-color: transparent; color: var(--muted); padding: 8px 4px; font-weight: 500; }
+  .ghost:hover { color: var(--ink); border-color: transparent; }
+  .stage { position: relative; background: #0a0b0c; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: none; }
+  .stage.on { display: block; }
+  .stage canvas, .stage video { display: block; width: 100%; height: auto; max-height: 70vh; object-fit: contain; }
+  .stage video { transform: scaleX(-1); }
+  .stage canvas { cursor: crosshair; touch-action: manipulation; }
+  .hint { font-size: 14px; color: var(--muted); min-height: 21px; }
+  .hint b { color: var(--ink); }
+  label.lab { font-size: 13px; color: var(--muted); display: grid; gap: 6px; }
+  textarea { font: 15px/1.4 var(--sans); color: var(--ink); background: var(--raise); border: 1px solid var(--line); border-radius: 10px;
+             padding: 10px 12px; resize: vertical; min-height: 64px; }
+  .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--muted); }
+  .consent input { margin-top: 3px; }
+  .busy { display: none; gap: 8px; }
+  .busy.on { display: grid; }
+  .bar { height: 4px; border-radius: 4px; background: var(--raise); overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 30%; background: var(--light); border-radius: 4px; animation: slide 1.4s ease-in-out infinite; }
+  @keyframes slide { 0% { transform: translateX(-100%); } 100% { transform: translateX(340%); } }
+  @media (prefers-reduced-motion: reduce) { .bar i { animation: none; width: 100%; opacity: .5; } }
+  .result { display: none; border-radius: 12px; padding: 16px; border: 1px solid var(--line); background: var(--raise); gap: 8px; }
+  .result.on { display: grid; }
+  .verdict { font: 700 28px/1 var(--round); letter-spacing: .01em; }
+  .result[data-d="OPEN"] { border-color: color-mix(in srgb, var(--open) 50%, transparent); }
+  .result[data-d="OPEN"] .verdict { color: var(--open); }
+  .result[data-d="NOT NOW"] { border-color: color-mix(in srgb, var(--wait) 50%, transparent); }
+  .result[data-d="NOT NOW"] .verdict { color: var(--wait); }
+  .result[data-d="NOT YOU"] { border-color: color-mix(in srgb, var(--deny) 50%, transparent); }
+  .result[data-d="NOT YOU"] .verdict { color: var(--deny); }
+  .result[data-d="MAPPED"] .verdict { color: var(--light); }
+  .result[data-d="ERROR"] .verdict { color: var(--deny); font-size: 20px; }
+  .nums { font: 13px/1.5 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+  .secret { margin-top: 4px; padding: 14px; border-radius: 10px; background: var(--ground); border: 1px dashed color-mix(in srgb, var(--open) 55%, transparent);
+            font: 600 22px/1.3 var(--mono); white-space: pre-wrap; word-break: break-word; text-align: center; }
+  footer { color: var(--faint); font-size: 13px; display: grid; gap: 8px; }
+  footer .row { justify-content: space-between; }
+  .flash { position: fixed; inset: 0; z-index: 10; display: none; }
+  .flash.on { display: block; }
+  .flash[data-p="black"] { background: #000; }
+  .flash[data-p="white"] { background: #fff; }
+  .flash[data-p="top"] { background: linear-gradient(#fff 0 50%, #000 50% 100%); }
+  .flash[data-p="bottom"] { background: linear-gradient(#000 0 50%, #fff 50% 100%); }
+  .flash span { position: absolute; left: 16px; right: 16px; top: 46%; text-align: center; font: 600 22px/1.3 var(--round); }
+  .flash[data-p="black"] span { color: #8a8f95; }
+  .flash[data-p="white"] span { color: #3a3f45; }
+  .flash[data-p="top"] span, .flash[data-p="bottom"] span { display: none; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="flash" id="flash" aria-hidden="true"><span id="flashmsg"></span></div>
+<div class="wrap">
+  <header>
+    <div>
+      <h1 id="h1">Face Lock</h1>
+      <p class="lede" id="lede">Scan once. After that, only your face opens it, even in a dark room lit by this screen.</p>
+      <p class="prize" id="prize" hidden></p>
+      <p class="count" id="count" hidden></p>
+    </div>
+    <span class="chip" id="chip" data-s="none">No map</span>
+  </header>
+
+  <section class="card" id="card">
+    <h2 id="title">Scan your face</h2>
+    <ul class="steps" id="steps"></ul>
+    <label class="consent" id="consentwrap" hidden><input type="checkbox" id="consent">
+      <span>I agree that my camera frames are sent to this challenge's server and checked once against the lock. The frames are deleted right away; only the time and the answer are kept for the scoreboard.</span></label>
+    <div class="row">
+      <button id="cam" type="button">Use camera</button>
+      <label class="file" id="pickwrap"><input id="pick" type="file" accept="image/jpeg,image/png">Choose a photo</label>
+    </div>
+    <div class="stage" id="stage">
+      <video id="video" playsinline muted hidden></video>
+      <canvas id="canvas" hidden></canvas>
+    </div>
+    <div class="row" id="camrow" hidden>
+      <button id="shoot" type="button" class="primary">Flash and capture</button>
+      <button id="camstop" type="button" class="ghost">Cancel</button>
+    </div>
+    <div class="row">
+      <div class="hint" id="hint" aria-live="polite"></div>
+      <button id="redo" type="button" class="ghost" hidden>Redo eyes</button>
+    </div>
+    <label class="lab" id="secretwrap">What your face unlocks
+      <textarea id="secret" placeholder="A note, a code, the challenge word…" maxlength="2000"></textarea>
+    </label>
+    <div class="row"><button id="go" type="button" class="primary" disabled>Make my map</button></div>
+    <div class="busy" id="busy"><div class="hint" id="busytext"></div><div class="bar"><i></i></div></div>
+    <div class="result" id="result" aria-live="polite">
+      <div class="verdict" id="verdict"></div>
+      <div id="why"></div>
+      <div class="secret" id="vault" hidden></div>
+      <div id="after"></div>
+      <div class="nums" id="nums"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div id="privacy">Runs only on this Mac. Your map is numbers: it is never shown and never sent anywhere. Photos are read once and not kept.</div>
+    <div class="row"><span id="made"></span><button id="reset" type="button" class="ghost" hidden>Delete my map</button></div>
+  </footer>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const S = { mode: 'admin', hasMap: false, img: null, b64: null, frames: null, pairs: null, eyes: [], zoom: null, stream: null, busy: false };
+const ZOOM = 5;
+const challenge = () => S.mode === 'challenge';
+
+function steps(items) { $('steps').innerHTML = items.map((t, i) => `<li><b>${i + 1}.</b> ${t}</li>`).join(''); }
+
+async function status() {
+  const r = await fetch('/api/status').then((x) => x.json());
+  S.mode = r.mode; S.hasMap = r.has_map;
+  if (challenge()) {
+    $('h1').textContent = r.headline || 'Can you open my face lock?';
+    $('lede').textContent = r.lede || 'It opens for one face only. Crack it with yours, a photo, a screen, anything, and you win.';
+    $('prize').hidden = !r.prize; $('prize').textContent = r.prize ? `Win ${r.prize}.` : '';
+    const c = r.counts || { tries: 0, opened: 0 };
+    $('count').hidden = false; $('count').textContent = `${c.tries.toLocaleString()} ${c.tries === 1 ? 'try' : 'tries'} so far · ${c.opened || 0} opened`;
+    $('privacy').textContent = 'Your frames are checked once and deleted right away. Only the time and the answer are kept for the scoreboard.';
+    $('made').textContent = '';
+  } else {
+    $('made').textContent = r.has_map ? `Map made ${r.made} · ${r.fresh} of ${r.fresh_n.toLocaleString()} fresh lab strangers open it` : '';
+  }
+  render();
+}
+
+function render() {
+  const scan = !challenge() && !S.hasMap;
+  $('pickwrap').hidden = challenge();
+  $('consentwrap').hidden = !challenge();
+  $('secretwrap').hidden = !scan;
+  $('reset').hidden = challenge() || !S.hasMap;
+  if (challenge()) {
+    $('chip').dataset.s = 'locked'; $('chip').textContent = 'Locked';
+    $('title').textContent = 'Try to open it';
+    steps(['Dim the lights and turn your screen brightness all the way up.', 'Start the camera and hold your face in view. Your screen flashes six times: hold still.',
+           'Tap near one eye to zoom in, then tap the pupil. Do the same for the other eye.']);
+    $('go').textContent = 'Try to open it';
+    $('cam').disabled = S.busy || !$('consent').checked;
+  } else {
+    $('chip').dataset.s = scan ? 'none' : 'locked'; $('chip').textContent = scan ? 'No map' : 'Locked';
+    $('title').textContent = scan ? 'Scan your face' : 'Unlock';
+    steps(scan ? ['Use the camera (the screen flashes to light your face) or choose a photo.', 'Tap near one eye to zoom in, then tap the pupil. Do the same for the other eye.', 'Write what your face should unlock.']
+               : ['Use the camera (six flashes, hold still) or choose a photo.', 'Tap your two pupils the same way.', 'Press Unlock.']);
+    $('go').textContent = scan ? 'Make my map' : 'Unlock';
+    $('cam').disabled = S.busy;
+  }
+  $('go').disabled = S.busy || S.eyes.length !== 2 || (challenge() && !$('consent').checked);
+  hint();
+}
+
+function hint() {
+  const h = $('hint');
+  $('redo').hidden = !S.img || S.eyes.length === 0;
+  if (!S.img) { h.textContent = ''; return; }
+  if (S.zoom) h.innerHTML = '<b>Tap the centre of the pupil.</b>';
+  else if (S.eyes.length === 0) h.innerHTML = 'Tap near <b>one eye</b> to zoom in.';
+  else if (S.eyes.length === 1) h.innerHTML = 'Now tap near <b>the other eye</b>.';
+  else h.innerHTML = 'Both eyes are set.';
+}
+
+function view() {
+  const c = $('canvas'), iw = S.img.naturalWidth, ih = S.img.naturalHeight;
+  if (!S.zoom) return { x: 0, y: 0, w: iw, h: ih };
+  const w = iw / ZOOM, h = w * c.height / c.width;
+  return { x: Math.min(Math.max(S.zoom[0] - w / 2, 0), iw - w), y: Math.min(Math.max(S.zoom[1] - h / 2, 0), ih - h), w, h };
+}
+
+function draw() {
+  const c = $('canvas'), g = c.getContext('2d'), iw = S.img.naturalWidth, ih = S.img.naturalHeight;
+  const cssW = $('stage').clientWidth, dpr = window.devicePixelRatio || 1;
+  c.width = Math.round(cssW * dpr); c.height = Math.round(cssW * dpr * ih / iw);
+  const v = view();
+  g.imageSmoothingQuality = 'high';
+  g.drawImage(S.img, v.x, v.y, v.w, v.h, 0, 0, c.width, c.height);
+  const k = c.width / v.w;
+  S.eyes.forEach((e) => {
+    const x = (e[0] - v.x) * k, y = (e[1] - v.y) * k, r = Math.max(8, 10 * dpr);
+    g.lineWidth = 2 * dpr; g.strokeStyle = '#fff3dc'; g.beginPath(); g.arc(x, y, r, 0, 2 * Math.PI); g.stroke();
+    g.beginPath(); g.moveTo(x - r * 1.6, y); g.lineTo(x - r * .6, y); g.moveTo(x + r * .6, y); g.lineTo(x + r * 1.6, y); g.stroke();
+  });
+}
+
+function setImage(dataUrl, payload) {
+  const im = new Image();
+  im.onload = () => {
+    S.img = im; S.b64 = dataUrl; S.frames = (payload && payload.frames) || null; S.pairs = (payload && payload.pairs) || null;
+    S.eyes = []; S.zoom = null;
+    $('stage').classList.add('on'); $('video').hidden = true; $('canvas').hidden = false;
+    $('result').classList.remove('on');
+    draw(); render();
+  };
+  im.onerror = () => showError('This photo could not be opened here. Choose a JPEG or PNG.');
+  im.src = dataUrl;
+}
+
+$('canvas').addEventListener('click', (ev) => {
+  if (!S.img || S.busy) return;
+  const c = $('canvas'), r = c.getBoundingClientRect(), v = view();
+  const px = v.x + (ev.clientX - r.left) / r.width * v.w, py = v.y + (ev.clientY - r.top) / r.height * v.h;
+  if (S.eyes.length === 2) S.eyes = [];
+  if (!S.zoom) S.zoom = [px, py];
+  else { S.eyes.push([px, py]); S.zoom = null; }
+  draw(); render();
+});
+$('redo').onclick = () => { S.eyes = []; S.zoom = null; draw(); render(); };
+window.addEventListener('resize', () => { if (S.img && !$('canvas').hidden) draw(); });
+$('consent').addEventListener('change', render);
+
+$('pick').addEventListener('change', (ev) => {
+  const f = ev.target.files[0]; ev.target.value = '';
+  if (!f) return;
+  if (/hei[cf]/i.test(f.type) || /\.hei[cf]$/i.test(f.name)) return showError('HEIC photos cannot be read here. Choose a JPEG. On iPhone, Settings › Camera › Formats › Most Compatible saves JPEGs.');
+  stopCamera();
+  const rd = new FileReader(); rd.onload = () => setImage(rd.result, null); rd.readAsDataURL(f);
+});
+
+async function startCamera() {
+  try {
+    S.stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user', width: { ideal: 1280 }, height: { ideal: 960 } }, audio: false });
+  } catch (e) { return showError('The camera could not start. Allow camera access for this page' + (challenge() ? '.' : ', or choose a photo instead.')); }
+  const v = $('video'); v.srcObject = S.stream; await v.play();
+  S.img = null; S.eyes = []; S.zoom = null; S.frames = null; S.pairs = null;
+  $('stage').classList.add('on'); v.hidden = false; $('canvas').hidden = true; $('camrow').hidden = false;
+  $('result').classList.remove('on'); render();
+}
+function stopCamera() {
+  if (S.stream) S.stream.getTracks().forEach((t) => t.stop());
+  S.stream = null; $('camrow').hidden = true; $('video').hidden = true;
+}
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+function grab(v) {
+  const W = Math.min(960, v.videoWidth), H = Math.round(v.videoHeight * W / v.videoWidth);
+  const c = document.createElement('canvas'); c.width = W; c.height = H;
+  c.getContext('2d').drawImage(v, 0, 0, W, H);
+  return c.toDataURL('image/jpeg', 0.95);
+}
+$('cam').onclick = startCamera;
+$('camstop').onclick = () => { stopCamera(); if (!S.img) $('stage').classList.remove('on'); };
+async function phase(p, ms, msg) {
+  const fl = $('flash'); fl.dataset.p = p; $('flashmsg').textContent = msg || '';
+  await sleep(ms); return grab($('video'));
+}
+$('shoot').onclick = async () => {
+  const fl = $('flash');
+  fl.classList.add('on');
+  if (!challenge() && !S.hasMap) {                      // the scan: 8 black/white pairs, the screen is the light
+    const pairs = [];
+    for (let i = 0; i < 8; i++) {
+      const msg = i < 3 ? 'Hold still and look at the screen' : 'Keep looking. Move only a tiny bit';
+      pairs.push([await phase('black', 350, msg), await phase('white', 350, msg)]);
+    }
+    fl.classList.remove('on'); stopCamera();
+    setImage(pairs[0][1], { pairs });
+  } else {                                              // a try: black, white, the two halves in random order, black, white
+    const halves = Math.random() < .5 ? ['top', 'bottom'] : ['bottom', 'top'];
+    const f = { black: [], white: [], top: [], bottom: [] };
+    for (const p of ['black', 'white', ...halves, 'black', 'white']) f[p].push(await phase(p, 450, 'Hold still'));
+    fl.classList.remove('on'); stopCamera();
+    setImage(f.white[0], { frames: f });
+  }
+};
+
+function busy(on, text) {
+  S.busy = on; $('busy').classList.toggle('on', on); $('busytext').textContent = text || '';
+  ['shoot', 'reset'].forEach((id) => { $(id).disabled = on; }); $('pick').disabled = on; render();
+}
+function show(d, why, nums, secret, after) {
+  $('result').dataset.d = d; $('verdict').textContent = d; $('why').textContent = why || '';
+  $('nums').textContent = nums || ''; $('vault').hidden = secret == null; $('vault').textContent = secret == null ? '' : secret;
+  $('after').textContent = after || '';
+  $('result').classList.add('on');
+}
+function showError(msg) { show('ERROR', msg, ''); }
+
+$('go').onclick = async () => {
+  if (S.eyes.length !== 2 || !S.b64) return;
+  const scan = !challenge() && !S.hasMap, eyes = S.eyes.map((e) => e.map((v) => Math.round(v * 10) / 10));
+  let path, body;
+  if (scan) { path = '/api/scan'; body = S.pairs ? { pairs: S.pairs, eyes, secret: $('secret').value } : { image: S.b64, eyes, secret: $('secret').value }; }
+  else if (S.frames) { path = '/api/try'; body = { frames: S.frames, eyes, consent: $('consent').checked }; }
+  else { path = '/api/unlock'; body = { image: S.b64, eyes }; }
+  busy(true, scan ? 'Making your map, then measuring it against 30,592 lab-stranger tries. This takes about two minutes.' : 'Checking the face against the lock…');
+  try {
+    const r = await fetch(path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    const j = await r.json();
+    if (!r.ok) throw new Error(j.error || 'Something went wrong.');
+    if (scan) {
+      $('secret').value = '';
+      show('MAPPED', `Your map is made and locked on this Mac: ${j.maps} of ${j.frames} frames kept. ${j.fresh} of ${j.fresh_n.toLocaleString()} fresh lab strangers open it.`,
+           `bars set from ${j.cal_n.toLocaleString()} lab tries · authored in ${j.lanes} lanes · ${j.seconds} s`);
+      S.img = null; S.eyes = []; $('stage').classList.remove('on');
+    } else {
+      const open = j.decision === 'OPEN';
+      $('chip').dataset.s = open ? 'open' : 'locked'; $('chip').textContent = open ? 'Open' : 'Locked';
+      let why = j.reason, after = '';
+      if (challenge()) {
+        if (open) { why = 'You opened it. Our face law failed, and you win.'; after = 'Send this word to the maker to claim your prize.'; }
+        else if (j.decision === 'NOT YOU') why = 'Not you. The face law held.';
+      }
+      const L = j.live, nums = j.score != null || L ? [
+        j.score != null ? `score ${j.score.toFixed(2)} · bar ${j.bar == null ? 'none' : j.bar.toFixed(2)} · light ${j.light}` : '',
+        L ? `liveness: screen share ${L.rel} · 3D ${L.r3d == null ? '—' : L.r3d} · moved ${L.shift} · face px ${L.n}` : ''].filter(Boolean).join('\n') : '';
+      show(j.decision, why, nums, open ? j.secret : null, after);
+    }
+  } catch (e) { showError(e.message); }
+  busy(false);
+  if (challenge() || scan) status();
+};
+
+$('reset').onclick = async () => {
+  if (!confirm('Delete your map? The locked secret goes with it.')) return;
+  await fetch('/api/reset', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' });
+  $('result').classList.remove('on'); S.img = null; S.eyes = []; $('stage').classList.remove('on');
+  await status();
+};
+
+status();
+</script>
+</body>
+</html>

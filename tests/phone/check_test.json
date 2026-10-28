@@ -1,0 +1,132 @@
+{
+ "live | still": {
+  "v7.0": {
+   "OPEN": 20,
+   "NOT NOW (This looks flat, like a photo or a)": 4
+  },
+  "v7.1": {
+   "OPEN": 19,
+   "NOT NOW (The face moved during the check fl)": 3,
+   "NOT NOW (This looks flat, like a photo or a)": 2
+  }
+ },
+ "live | drift 1 px/phase": {
+  "v7.0": {
+   "OPEN": 23,
+   "NOT NOW (The face was not in the same place)": 1
+  },
+  "v7.1": {
+   "OPEN": 18,
+   "NOT NOW (The face moved during the check fl)": 4,
+   "NOT NOW (This looks flat, like a photo or a)": 2
+  }
+ },
+ "live | drift 2 px/phase": {
+  "v7.0": {
+   "OPEN": 23,
+   "NOT NOW (The face moved during the check fl)": 1
+  },
+  "v7.1": {
+   "OPEN": 20,
+   "NOT NOW (The face moved during the check fl)": 3,
+   "NOT NOW (This looks flat, like a photo or a)": 1
+  }
+ },
+ "live | drift 3 px/phase": {
+  "v7.0": {
+   "OPEN": 15,
+   "NOT NOW (The face moved during the check fl)": 9
+  },
+  "v7.1": {
+   "OPEN": 20,
+   "NOT NOW (The face moved during the check fl)": 3,
+   "NOT NOW (This looks flat, like a photo or a)": 1
+  }
+ },
+ "live | shake +-4 px": {
+  "v7.0": {
+   "OPEN": 24
+  },
+  "v7.1": {
+   "OPEN": 21,
+   "NOT NOW (The face moved during the check fl)": 2,
+   "NOT NOW (This looks flat, like a photo or a)": 1
+  }
+ },
+ "live | turn 1 deg/phase": {
+  "v7.0": {
+   "OPEN": 19,
+   "NOT NOW (This looks flat, like a photo or a)": 3,
+   "NOT NOW (The face was not in the same place)": 2
+  },
+  "v7.1": {
+   "OPEN": 17,
+   "NOT NOW (The face moved during the check fl)": 4,
+   "NOT NOW (This looks flat, like a photo or a)": 2,
+   "NOT NOW (The face moved during the flashes.)": 1
+  }
+ },
+ "print | still": {
+  "v7.0": {
+   "NOT NOW (This looks flat, like a photo or a)": 24
+  },
+  "v7.1": {
+   "NOT NOW (This looks flat, like a photo or a)": 10,
+   "OPEN": 12,
+   "NOT NOW (The face moved during the flashes.)": 2
+  }
+ },
+ "print | drift 2 px/phase": {
+  "v7.0": {
+   "OPEN": 23,
+   "NOT NOW (The face moved during the check fl)": 1
+  },
+  "v7.1": {
+   "NOT NOW (This looks flat, like a photo or a)": 10,
+   "OPEN": 12,
+   "NOT NOW (The face moved during the check fl)": 2
+  }
+ },
+ "print | shake +-4 px": {
+  "v7.0": {
+   "OPEN": 21,
+   "NOT NOW (This looks flat, like a photo or a)": 2,
+   "NOT NOW (The face was not in the same place)": 1
+  },
+  "v7.1": {
+   "NOT NOW (This looks flat, like a photo or a)": 13,
+   "OPEN": 9,
+   "NOT NOW (The face moved during the check fl)": 2
+  }
+ },
+ "replay | still": {
+  "v7.0": {
+   "NOT NOW (Too little of the screen's light r)": 24
+  },
+  "v7.1": {
+   "NOT NOW (Too little of the screen's light r)": 24
+  }
+ },
+ "replay | drift 2 px/phase": {
+  "v7.0": {
+   "NOT NOW (Too little of the screen's light r)": 23,
+   "NOT NOW (The face moved during the check fl)": 1
+  },
+  "v7.1": {
+   "NOT NOW (Too little of the screen's light r)": 22,
+   "NOT NOW (The face moved during the flashes.)": 1,
+   "NOT NOW (The face moved during the check fl)": 1
+  }
+ },
+ "replay | shake +-4 px": {
+  "v7.0": {
+   "NOT NOW (Too little of the screen's light r)": 23,
+   "NOT NOW (The face moved during the check fl)": 1
+  },
+  "v7.1": {
+   "NOT NOW (Too little of the screen's light r)": 22,
+   "NOT NOW (The face was not in the same place)": 1,
+   "NOT NOW (The face moved during the check fl)": 1
+  }
+ }
+}

@@ -1,0 +1,33 @@
+{
+ "margin96": 0.6252602348790893,
+ "margin48": 1.8758116970525514,
+ "rule": "MAPPED: the owner's views at the angles the owner chooses (at enrolment, or added with the password after a failed try); a try is compared with every view, both laws, over the points the view's angle and the try's read angle both show (the view's own points when they share less than half); each view's bar = the best bundle try compared with it + the margin of its law; OPEN if either law clears any view's bar",
+ "choices": {
+  "1 angle: straight": {
+   "at_the_angles": 0.7702702702702703,
+   "within_10_deg": 0.17018072289156627,
+   "further_away": 0.0011049723756906078
+  },
+  "3 angles: straight, left 20, right 20": {
+   "at_the_angles": 0.8198198198198198,
+   "within_10_deg": 0.16644295302013423,
+   "further_away": 0.0020325203252032522
+  },
+  "5 angles: + up 10, down 10": {
+   "at_the_angles": 0.8216216216216217,
+   "within_10_deg": 0.21424870466321244,
+   "further_away": 0.0
+  },
+  "9 angles: + the four 20/10 corners": {
+   "at_the_angles": 0.7983383685800605,
+   "within_10_deg": 0.25991100323624594,
+   "further_away": 0.0
+  },
+  "all 35 angles": {
+   "at_the_angles": 0.6206548100242523,
+   "within_10_deg": 0.6206548100242523,
+   "further_away": null
+  }
+ },
+ "gate": "eye-check law (half without the person) in front of every law"
+}

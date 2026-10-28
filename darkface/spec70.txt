@@ -1,0 +1,25 @@
+[Redacted public copy: the names of private tools are replaced. The hash-locked original's sha256 is 7d6acfd1ecc35dcb92edd6ef4b87709a92f7dc7793babab158df7c1c169b2da6.]
+
+SPEC 70 -- DARK FACE at 70% AP@0.5  (written 2026-10-28 11:26:32, before LAW 7d is fitted)
+target    AP >= 70% on design-validation (300 images, 2,621 faces), the SPEC 50 path with the ranking replaced;
+          the 1,000 sealed test images are read (a FIFTH time) ONLY if design-validation reaches 70%
+ceiling   today's candidates ranked perfectly: 78.6% on design-validation, so 70% asks for an average precision of
+          about 89% over that recall (SPEC 50: 93% at its top 100 detections, 60% at recall 23%, 40% at 30%)
+the shot  LAW 7d: LAW 7c's recipe (additive trees, learning rate 0.1, early stopping on 10%) with 127 leaves per tree
+          (31 before) and at least 20 rows per leaf, on the same design rows [0:3800]: 625,396 rows, 63,146 faces;
+          if it beats LAW 7c on design-validation, program synthesis writes every number of it, (as SPEC 100)
+claims    the user: achievable ("so we can say it doesn't exist or is possible or we get it achieved")
+          mine: NOT achieved; design-validation 31-36% (LAW 7c 31.42%): the wall is the information in this law's
+          description of a 4-10 px face in the dark, not the size of the ranker and not its authoring
+sha256 darkface_spec70.py b0b4bab55e2ba3fb2045763823ad8515e6f602bdbd9e04300092192821fc65e6
+sha256 darkface_v4.py f6f068721b4cd59e75cec608ae3fd77e78539362203e1368a3cf1e901861c9e5
+sha256 darkface_v3.py 10c2bd786debf7ed139346d778f9cf4e712554146f12aee310ca0c66102cd78f
+sha256 darkface_v2.py bda78f37c8caa089ced51b34f9e4f3135398412c66711a7b60877226f2fdc68d
+sha256 darkface_law.py 9c074237a978e8d920bc7dd5849650caad9690dbd65ada5ba1d02bf44b8cb0b8
+sha256 darkface_run.py d54da98bac3628cfdc65772a8ffb0da3ddfdf8554a2b361b53442aad49dd29cf
+sha256 darkface/split.json a5881a2e80e2d6c4bcd040cdb160721c3a315e8a50fcd724a1b648d6909009b8
+sha256 darkface/lanes.json 6f98fc4919548a483ef991abde601d82dff8422d3a91a735c223ac35d2176b3a
+sha256 darkface/v4_model.pkl e9cab24d5c1f227ed9b8304e6ed01485b719748f6b9ce5b5ae44e53c4bbba5d3
+sha256 darkface/v4_place.pkl 750256fdb6e8c22a603f6a290059240f1a9ece95f78b3ee443e242ae662d117d
+sha256 darkface/law50.json 23bfd7b824aeab9c0c1d8c60130d534996fb33fe078f4bfc800d98afe8086dfb
+sha256 darkface/lanes100.json 5809ffaca9c65b2799a87ccaafce2a8abd8e695a7fac503fe2a0447f3902474a
